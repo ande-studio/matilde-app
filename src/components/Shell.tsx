@@ -3,37 +3,54 @@ import { useEffect } from 'preact/hooks'
 import { contentMeta } from '../content'
 import { locale, t, type MessageKey } from '../i18n'
 import { quickExit } from '../lib/exit'
+import { HelpModal } from '../screens/Help'
 import { applyUpdate, offlineReady, updateReady } from '../state/pwa'
 import { setLocale } from '../state/prefs'
-import { go, goRoot, route, type Route } from '../state/router'
-import { Icon, type IconName } from './ui'
+import { goRoot, route, type Route } from '../state/router'
+import { helpOpen, languageOpen, openHelp } from '../state/ui'
+import { Icon, Modal, Wordmark, type IconName } from './ui'
 
-type Section = 'home' | 'guides' | 'share' | 'training' | 'settings'
+type Section = 'home' | 'explore' | 'chat' | 'share' | 'settings'
 
-const NAV: { section: Section; icon: IconName; label: MessageKey; to: Route }[] = [
-  { section: 'home', icon: 'home', label: 'nav.home', to: { name: 'home' } },
-  { section: 'guides', icon: 'book', label: 'nav.guides', to: { name: 'guides' } },
-  { section: 'share', icon: 'present', label: 'nav.share', to: { name: 'share' } },
-  { section: 'training', icon: 'cap', label: 'nav.training', to: { name: 'training' } },
-  { section: 'settings', icon: 'sliders', label: 'nav.settings', to: { name: 'settings' } },
+interface NavItem {
+  section: Exclude<Section, 'settings'>
+  icon: IconName
+  label: MessageKey
+  short: MessageKey
+  to: Route
+}
+
+const NAV: NavItem[] = [
+  { section: 'home', icon: 'home', label: 'nav.home', short: 'nav.home.short', to: { name: 'home' } },
+  { section: 'explore', icon: 'book', label: 'nav.guides', short: 'nav.guides.short', to: { name: 'guides' } },
+  { section: 'chat', icon: 'flower', label: 'nav.chat', short: 'nav.chat.short', to: { name: 'matilde' } },
+  { section: 'share', icon: 'heart', label: 'nav.share', short: 'nav.share.short', to: { name: 'share' } },
 ]
 
 function sectionOf(name: Route['name']): Section {
   switch (name) {
     case 'guides':
     case 'guide':
-      return 'guides'
+    case 'training':
+    case 'lesson':
+    case 'phrases':
+      return 'explore'
+    case 'matilde':
+      return 'chat'
     case 'share':
     case 'share-view':
       return 'share'
-    case 'training':
-    case 'lesson':
-      return 'training'
     case 'settings':
       return 'settings'
     default:
       return 'home'
   }
+}
+
+function crumbOf(current: Route, section: Section): string {
+  if (current.name === 'route') return t('route.title')
+  if (section === 'settings') return t('nav.settings')
+  return t(NAV.find((n) => n.section === section)?.label ?? 'nav.home')
 }
 
 /** Dos pulsaciones seguidas de Esc equivalen a "Salir rápido". */
@@ -88,6 +105,46 @@ function Banners() {
   )
 }
 
+/** Un único botón "Necesito ayuda" en el DOM: en escritorio vive en la barra lateral y en móvil flota sobre la navegación. */
+function HelpButton() {
+  return (
+    <button type="button" class="help-side" onClick={openHelp}>
+      <span class="help-side__label">
+        <Icon name="heart" />
+        {t('action.help')}
+      </span>
+      <Icon name="external" />
+    </button>
+  )
+}
+
+function LanguageModal() {
+  const close = () => (languageOpen.value = false)
+  const choose = (value: 'es' | 'qu') => {
+    setLocale(value)
+    close()
+  }
+  return (
+    <Modal titleId="language-title" onClose={close}>
+      <h2 id="language-title" tabIndex={-1}>
+        {t('language.title')}
+      </h2>
+      <p>{t('language.body')}</p>
+      <div class="choices">
+        <button type="button" class="choice" lang="es" onClick={() => choose('es')}>
+          {t('language.es.long')}
+          <Icon name={locale.value === 'es' ? 'check' : 'arrow'} />
+        </button>
+        <button type="button" class="choice" lang="qu-PE" onClick={() => choose('qu')}>
+          {t('language.qu.long')}
+          <Icon name={locale.value === 'qu' ? 'check' : 'arrow'} />
+        </button>
+      </div>
+      <p class="notice">{t('banner.qu')}</p>
+    </Modal>
+  )
+}
+
 export function Shell({ children }: { children: ComponentChildren }) {
   useEscapeTwice()
   useFocusOnNavigate()
@@ -97,67 +154,109 @@ export function Shell({ children }: { children: ComponentChildren }) {
 
   return (
     <div class={`app${presenting ? ' app--presenting' : ''}`}>
-      <header class="topbar">
-        {!presenting && (
-          <button type="button" class="brand" onClick={() => goRoot({ name: 'home' })}>
-            <img src="/matilde-flor.svg" alt="" width="28" height="31" />
-            <span>
-              {t('app.name')}
-              <small>{t('app.tagline')}</small>
-            </span>
-          </button>
-        )}
-        <div class="topbar-actions">
-          {!presenting && (
-            <div class="segmented" role="group" aria-label={t('action.language')}>
-              {(['es', 'qu'] as const).map((l) => (
-                <button
-                  type="button"
-                  key={l}
-                  lang={l === 'qu' ? 'qu-PE' : 'es'}
-                  aria-pressed={locale.value === l}
-                  onClick={() => setLocale(l)}
-                >
-                  {l.toUpperCase()}
-                  <span class="visually-hidden"> {t(l === 'es' ? 'language.es' : 'language.qu')}</span>
-                </button>
-              ))}
-            </div>
-          )}
-          <button type="button" class="btn btn--quiet" onClick={quickExit}>
-            <Icon name="exit" />
-            {t('action.exit')}
-          </button>
-        </div>
-      </header>
-
       {!presenting && (
-        <nav class="nav" aria-label={t('nav.main')}>
-          {NAV.map((item) => (
+        <aside class="sidebar">
+          <button type="button" class="brand" onClick={() => goRoot({ name: 'home' })} aria-label={t('app.name')}>
+            <Wordmark />
+          </button>
+          <p class="brand-note">{t('app.tagline')}</p>
+
+          <nav class="main-nav" aria-label={t('nav.main')}>
+            {NAV.map((item) => (
+              <button
+                type="button"
+                key={item.section}
+                class="nav-item"
+                aria-current={section === item.section ? 'page' : undefined}
+                onClick={() => goRoot(item.to)}
+              >
+                <Icon name={item.icon} />
+                <span class="nav-label">{t(item.label)}</span>
+                <span class="nav-short" aria-hidden="true">
+                  {t(item.short)}
+                </span>
+              </button>
+            ))}
+          </nav>
+
+          <div class="side-bottom">
+            <div class="safe-note">
+              <Icon name="leaf" />
+              <b>{t('side.safe.title')}</b>
+              <p>{t('side.safe.body')}</p>
+            </div>
             <button
               type="button"
-              key={item.section}
-              aria-current={section === item.section ? 'page' : undefined}
-              onClick={() => goRoot(item.to)}
+              class="settings-btn"
+              aria-current={section === 'settings' ? 'page' : undefined}
+              onClick={() => goRoot({ name: 'settings' })}
             >
-              <Icon name={item.icon} />
-              <span>{t(item.label)}</span>
+              <Icon name="sliders" />
+              {t('nav.settings')}
             </button>
-          ))}
-        </nav>
+            <HelpButton />
+          </div>
+        </aside>
       )}
 
-      <main class="main">
-        {!presenting && <Banners />}
-        {children}
-      </main>
+      <div class="shell">
+        <header class="topbar">
+          {!presenting && (
+            <>
+              <button type="button" class="mobile-wordmark" onClick={() => goRoot({ name: 'home' })} aria-label={t('app.name')}>
+                <Wordmark />
+              </button>
+              <div class="crumb">
+                {t('crumb.space')}
+                <span class="crumb-sep" aria-hidden="true">
+                  /
+                </span>
+                <b>{crumbOf(current, section)}</b>
+              </div>
+            </>
+          )}
+          <div class="topbar-actions">
+            {!presenting && (
+              <>
+                <button
+                  type="button"
+                  class="mobile-profile"
+                  aria-label={t('nav.settings')}
+                  onClick={() => goRoot({ name: 'settings' })}
+                >
+                  <Icon name="user" />
+                </button>
+                <button type="button" class="lang-btn" aria-label={t('action.language.pick')} onClick={() => (languageOpen.value = true)}>
+                  <Icon name="globe" />
+                  <span class="lang-name">{t(locale.value === 'es' ? 'language.es' : 'language.qu')}</span>
+                  <span class="lang-code">{locale.value.toUpperCase()}</span>
+                  <Icon name="chevron-down" />
+                </button>
+              </>
+            )}
+            <button type="button" class="exit-btn" onClick={quickExit}>
+              {t('action.exit')}
+              <Icon name="external" />
+            </button>
+          </div>
+        </header>
 
-      {current.name !== 'help' && (
-        <button type="button" class="help-fab" onClick={() => go({ name: 'help' })}>
-          <Icon name="heart" />
-          {t('action.help')}
-        </button>
-      )}
+        <main class="main">
+          {!presenting && <Banners />}
+          {children}
+        </main>
+
+        {!presenting && (
+          <footer class="footer">
+            <span>{t('footer.left')}</span>
+            <span>{t('footer.right')}</span>
+          </footer>
+        )}
+      </div>
+
+      {presenting && <HelpButton />}
+      {helpOpen.value && <HelpModal />}
+      {languageOpen.value && <LanguageModal />}
     </div>
   )
 }

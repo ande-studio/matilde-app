@@ -5,7 +5,7 @@ import { getHelpLines, getRuta } from '../content'
 import { locale, t, tOr } from '../i18n'
 import { nextQuestion, prefill, resolveRuta, type Answers } from '../lib/ruta'
 import { rutaAnswers } from '../state/session'
-import { go } from '../state/router'
+import { openHelp } from '../state/ui'
 
 /** Perfil con el que se rellena "¿Quién eres tú?": el usuario principal es personal de salud. */
 const DEFAULT_ROLE = 'salud'
@@ -45,7 +45,7 @@ export function RouteScreen() {
         <ScreenTitle>{t('route.title')}</ScreenTitle>
         <p class="callout callout--safety">{t('route.unavailable')}</p>
         <div class="actions">
-          <button type="button" class="btn btn--alert" onClick={() => go({ name: 'help' })}>
+          <button type="button" class="btn btn--alert" onClick={openHelp}>
             <Icon name="heart" />
             {t('action.help')}
           </button>

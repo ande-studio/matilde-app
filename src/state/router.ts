@@ -1,5 +1,6 @@
 import { signal } from '@preact/signals'
 import type { Category } from '../../schemas/content'
+import { resetUi } from './ui'
 
 /**
  * Enrutador en memoria. A propósito NO usa la URL ni el historial del navegador:
@@ -13,7 +14,7 @@ export type Route =
   | { name: 'share-view'; id: string }
   | { name: 'phrases' }
   | { name: 'route' }
-  | { name: 'help' }
+  | { name: 'matilde' }
   | { name: 'training' }
   | { name: 'lesson'; id: string }
   | { name: 'settings' }
@@ -45,4 +46,5 @@ export function canGoBack(): boolean {
 export function resetRouter(): void {
   history.length = 0
   route.value = HOME
+  resetUi()
 }

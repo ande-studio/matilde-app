@@ -1,7 +1,7 @@
 import { Shell } from './components/Shell'
 import { Guides, GuideDetail } from './screens/Guides'
-import { Help } from './screens/Help'
 import { Home } from './screens/Home'
+import { Matilde } from './screens/Matilde'
 import { Phrases } from './screens/Phrases'
 import { RouteScreen } from './screens/Route'
 import { Settings } from './screens/Settings'
@@ -25,8 +25,8 @@ function Screen({ current }: { current: Route }) {
       return <Phrases />
     case 'route':
       return <RouteScreen />
-    case 'help':
-      return <Help />
+    case 'matilde':
+      return <Matilde />
     case 'training':
       return <Training />
     case 'lesson':

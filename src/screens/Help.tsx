@@ -1,62 +1,75 @@
-import { BackButton, ExternalLink, Icon, ScreenTitle } from '../components/ui'
-import { piecesOf, getHelpLines } from '../content'
+import { ExternalLink, Icon, Modal } from '../components/ui'
+import { getHelpLines, piecesOf } from '../content'
 import { locale, t } from '../i18n'
+import { closeHelp } from '../state/ui'
 import { go } from '../state/router'
 
 /**
- * "Necesito ayuda": a 2 toques de llamar desde cualquier pantalla (botón fijo → llamada).
- * No pide ningún dato ni pregunta qué pasó.
+ * "Necesito ayuda": se abre desde un botón siempre visible y llega a la llamada en 2 toques
+ * (botón → número). No pide ningún dato ni pregunta qué pasó. Es una superposición: no cambia
+ * la pantalla de fondo ni deja rastro en el historial.
  */
-export function Help() {
+export function HelpModal() {
   const lines = getHelpLines()
   const sources = piecesOf('ayuda').flatMap((p) => p.sources)
 
   return (
-    <>
-      <BackButton />
-      <ScreenTitle>{t('help.title')}</ScreenTitle>
-      <p class="lead">{t('help.intro')}</p>
+    <Modal titleId="help-title" onClose={closeHelp} showHelp={false}>
+      <p class="eyebrow">{t('help.eyebrow')}</p>
+      <h2 id="help-title" tabIndex={-1}>
+        {t('help.title')}
+      </h2>
+      <p>{t('help.intro')}</p>
 
       <ul class="calls">
         {lines.map((line) => {
           const text = line.locales[locale.value] ?? line.locales.es
           return (
             <li key={line.id}>
-              <a class="call" href={`tel:${line.number}`}>
-                <Icon name="phone" />
-                <span class="call-text">
-                  <strong>{t('help.call', { number: line.number })}</strong>
-                  <span>{text.label}</span>
-                  <span class="muted">{text.detail}</span>
+              <a class="help-call" href={`tel:${line.number}`}>
+                <span>
+                  <b>{t('help.call', { number: line.number })}</b>
+                  <small>{text.label}</small>
+                  {text.detail && <small>{text.detail}</small>}
                 </span>
+                <Icon name="phone" />
               </a>
-              <p class="muted small">
+              <p class="help-verify">
                 {line.verifiedAt ? t('help.verified', { date: line.verifiedAt }) : t('help.unverified')}
               </p>
             </li>
           )
         })}
       </ul>
-      <p class="muted">{t('help.noSignal')}</p>
+
+      <p class="source">{t('help.noSignal')}</p>
 
       <div class="actions">
-        <button type="button" class="btn btn--alert" onClick={() => go({ name: 'route' })}>
+        <button
+          type="button"
+          class="btn btn--alert"
+          onClick={() => {
+            closeHelp()
+            go({ name: 'route' })
+          }}
+        >
           <Icon name="shield" />
           {t('help.route')}
         </button>
       </div>
 
-      <p class="callout callout--info">{t('help.notReport')}</p>
+      <p class="notice">{t('help.notReport')}</p>
       {sources.length > 0 && (
-        <section class="block small">
-          <h2>{t('help.sources')}</h2>
-          <ul>
-            {sources.map((s) => (
-              <li key={s.label}>{s.url ? <ExternalLink href={s.url}>{s.label}</ExternalLink> : s.label}</li>
-            ))}
-          </ul>
-        </section>
+        <p class="source">
+          {t('help.sources')}:{' '}
+          {sources.map((s, i) => (
+            <span key={s.label}>
+              {i > 0 && ' · '}
+              {s.url ? <ExternalLink href={s.url}>{s.label}</ExternalLink> : s.label}
+            </span>
+          ))}
+        </p>
       )}
-    </>
+    </Modal>
   )
 }

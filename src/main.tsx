@@ -3,16 +3,17 @@ import '@fontsource/dm-sans/latin-600.css'
 import '@fontsource/dm-sans/latin-700.css'
 import '@fontsource/nunito/latin-700.css'
 import '@fontsource/nunito/latin-800.css'
+import './styles/main.css'
 import { render } from 'preact'
+import { App } from './App'
+import { applyDocumentLanguage, locale } from './i18n'
 import { setupPwa } from './pwa'
+import { applyUpdate, offlineReady, updateReady } from './state/pwa'
 
-function App() {
-  return <h1>Matilde</h1>
-}
-
+applyDocumentLanguage(locale.value)
 render(<App />, document.getElementById('app')!)
 
-setupPwa({
-  onNeedRefresh: () => console.info('Hay una versión nueva disponible'),
-  onOfflineReady: () => console.info('Listo para usar sin conexión'),
+applyUpdate.value = setupPwa({
+  onNeedRefresh: () => (updateReady.value = true),
+  onOfflineReady: () => (offlineReady.value = true),
 })

@@ -1,10 +1,8 @@
 {
-  // Despliegue en Cloudflare (Workers con assets estáticos).
-  // El nombre debe coincidir con el del proyecto en Cloudflare.
+  // Despliegue en Cloudflare Pages (conexión con Git).
+  // El nombre debe coincidir con el del proyecto en Cloudflare Pages.
   // Las cabeceras de seguridad (CSP, etc.) vienen de public/_headers, que Vite copia a dist/.
   "name": "matilde-app",
   "compatibility_date": "2026-11-01",
-  "assets": {
-    "directory": "./dist"
-  }
+  "pages_build_output_dir": "./dist"
 }

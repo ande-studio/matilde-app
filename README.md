@@ -8,13 +8,15 @@ PWA de apoyo a la consejería para **profesionales de postas médicas en Perú**
 
 | Función | Dónde |
 | --- | --- |
-| **Necesito ayuda** (Línea 100 y 105) a 2 toques desde cualquier pantalla | `src/screens/Help.tsx` |
+| **Necesito ayuda** (Línea 100 y 105) a 2 toques desde cualquier pantalla, en un diálogo que no cambia la pantalla de fondo | `src/screens/Help.tsx` |
 | **Salir rápido** a una pantalla neutra (`location.replace`, también con Esc dos veces) | `src/lib/exit.ts`, `public/neutral.html` |
 | Ruta **"¿Qué hago?"**: árbol de decisión determinístico, solo opciones, sin guardar nada | `src/lib/ruta.ts`, `src/screens/Route.tsx` |
 | **Guías rápidas** de consejería, filtradas por categoría y edad | `src/screens/Guides.tsx` |
 | **Modo consulta**: mensaje a pantalla completa para ver con la paciente; volver exige mantener presionado | `src/screens/Share.tsx` |
 | **Frases en quechua** (lo que falta se marca; no se inventa) | `src/screens/Phrases.tsx` |
 | **Formación**: micro-lecciones con práctica y progreso opcional | `src/screens/Training.tsx` |
+| **Conversar con Matilde**: pantalla de "próximamente" (sin IA, sin campo de texto) con accesos guiados | `src/screens/Matilde.tsx` |
+| Inicio con ruta de aprendizaje, progreso y **racha semanal opcional y local** | `src/screens/Home.tsx`, `src/lib/week.ts` |
 | Ajustes: idioma, edad, progreso opcional, **borrar todo** | `src/screens/Settings.tsx` |
 | Offline (service worker), instalable | `vite.config.ts` |
 
@@ -66,7 +68,7 @@ Mientras nada esté aprobado, `production` solo lleva la ayuda de emergencia: es
 
 - Cero solicitudes a terceros: fuentes autoalojadas, CSP sin `unsafe-*`, sin scripts ni estilos en línea (`tools/check-build.ts`).
 - Sin campos de texto en la ruta; sus respuestas viven solo en memoria (`tests/ui.test.tsx`).
-- Solo se guarda idioma, edad (filtro) y, si se activa, el progreso; **nada de pacientes ni consultas** (`tests/core.test.ts`).
+- Solo se guarda idioma, edad (filtro) y, si se activa, el progreso (lecciones completadas y los días de la semana con una lección, hasta 14 días); **nada de pacientes ni consultas** (`tests/core.test.ts`).
 - El enrutador no usa la URL ni el historial del navegador.
 - Cualquier cambio en el árbol de la ruta cambia la tabla de combinaciones (`tests/snapshots/ruta-combinaciones.txt`) y exige revisión legal.
 - Presupuesto: JS + CSS ≤ 150 KB gzip (hoy ≈ 31 KB).
@@ -87,7 +89,8 @@ Mientras nada esté aprobado, `production` solo lleva la ayuda de emergencia: es
 - **Contenido**: borrador sin revisar. El quechua reutiliza solo propuestas del prototipo (sin revisión) y lo que falta se marca como pendiente.
 - **Salir rápido** no borra el historial previo del navegador, no cierra la app instalada ni la quita de "recientes". La app lo dice en Ajustes.
 - **Service worker / offline**: configurado y comprobado en el build (precache de la app y de la pantalla neutra), pero **no se verificó en un navegador real** con el modo avión. Falta una prueba E2E (Playwright) y una auditoría Lighthouse.
-- **Accesibilidad**: texto ≥ 14 px, objetivos táctiles ≥ 44 px y contraste revisado en los tokens; falta auditoría con lector de pantalla.
+- **Interfaz**: sigue la identidad del prototipo HTML (barra lateral, encabezado con migas, tarjeta de bienvenida, ruta de aprendizaje, diálogos). Se ajustó el tamaño del texto (lectura ≥ 14 px, etiquetas ≥ 12 px) frente a los 8–11 px del prototipo, y los objetivos táctiles son ≥ 44 px.
+- **Accesibilidad**: contraste revisado en los tokens; falta auditoría con lector de pantalla.
 - **Sin directorio local** de servicios, sin audio, sin compartir la app sin internet, sin ícono discreto.
 - **Dependencias**: `npm audit` reporta 6 avisos (2 bajos, 4 moderados) en la cadena de **build** (`workbox-build`); no se publican en la app. 0 avisos en dependencias de ejecución.
 - La licencia del **contenido** está pendiente de definir.

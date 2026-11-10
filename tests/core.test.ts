@@ -1,8 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { hasTranslation, locale, t } from '../src/i18n'
 import { exitApi, quickExit } from '../src/lib/exit'
+import { dayKey, KEEP_DAYS, pruneActivity, weekDays } from '../src/lib/week'
 import { PREFS_KEY, readJson } from '../src/lib/storage'
 import {
+  activity,
   ageFilter,
   completed,
   eraseAll,
@@ -28,7 +30,7 @@ describe('i18n', () => {
   it('cae al español cuando falta la traducción al quechua', () => {
     setLocale('qu')
     expect(t('action.help')).toBe('Yanapawanayta munani')
-    expect(t('home.title')).toBe('¿En qué te ayudamos hoy?')
+    expect(t('home.title')).toBe('¡Qué bueno verte por aquí!')
     expect(hasTranslation('action.help')).toBe(true)
     expect(hasTranslation('home.title')).toBe(false)
   })
@@ -67,7 +69,7 @@ describe('preferencias y privacidad', () => {
     rutaAnswers.value = { peligro: 'no' }
     const keys = Object.keys(window.localStorage)
     expect(keys).toEqual([PREFS_KEY])
-    expect(Object.keys(readJson<object>(PREFS_KEY)!).sort()).toEqual(['ageFilter', 'completed', 'locale', 'saveProgress'])
+    expect(Object.keys(readJson<object>(PREFS_KEY)!).sort()).toEqual(['activity', 'ageFilter', 'completed', 'locale', 'saveProgress'])
   })
 
   it('"Borrar todo" elimina lo guardado y restablece el estado', () => {
@@ -87,10 +89,12 @@ describe('preferencias y privacidad', () => {
     expect(ageFilter.value).toBe('all')
     expect(saveProgress.value).toBe(false)
     expect(completed.value).toEqual([])
+    expect(activity.value).toEqual([])
     expect(rutaAnswers.value).toEqual({})
     expect(route.value).toEqual({ name: 'home' })
   })
 })
+
 
 describe('salir rápido', () => {
   it('descarta el estado en memoria y reemplaza la página por la pantalla neutra', () => {
@@ -121,5 +125,53 @@ describe('enrutador en memoria', () => {
     resetRouter()
     expect(route.value).toEqual({ name: 'home' })
     expect(window.location.href).toBe(before)
+  })
+})
+
+describe('racha semanal (opcional y local)', () => {
+  const wednesday = new Date(2026, 10, 11) // miércoles 11 de noviembre de 2026
+
+  it('muestra la semana de lunes a domingo y marca hoy y los días con lección', () => {
+    const week = weekDays(wednesday, ['2026-11-09', '2026-11-11', '2026-10-01'])
+    expect(week.map((d) => d.key)).toEqual([
+      '2026-11-09',
+      '2026-11-10',
+      '2026-11-11',
+      '2026-11-12',
+      '2026-11-13',
+      '2026-11-14',
+      '2026-11-15',
+    ])
+    expect(week.map((d) => d.letter).join('')).toBe('LMMJVSD')
+    expect(week.filter((d) => d.done).map((d) => d.key)).toEqual(['2026-11-09', '2026-11-11'])
+    expect(week.filter((d) => d.today).map((d) => d.key)).toEqual(['2026-11-11'])
+  })
+
+  it('el domingo cuenta como último día de la semana', () => {
+    const sunday = new Date(2026, 10, 15)
+    const week = weekDays(sunday, [])
+    expect(week[0]?.key).toBe('2026-11-09')
+    expect(week[6]?.today).toBe(true)
+  })
+
+  it('conserva solo los últimos días y descarta valores no válidos', () => {
+    const today = new Date(2026, 10, 11)
+    const old = dayKey(new Date(2026, 10, 11 - KEEP_DAYS - 1))
+    expect(pruneActivity([old, '2026-11-10', '2026-11-10', 'no-es-fecha', '2026-11-09'], today)).toEqual([
+      '2026-11-09',
+      '2026-11-10',
+    ])
+  })
+
+  it('completar una lección registra el día, pero solo se guarda si la persona activó guardar el progreso', () => {
+    markCompleted('leccion-1')
+    const today = dayKey(new Date())
+    expect(activity.value).toEqual([today])
+    expect(readJson<{ activity: string[] }>(PREFS_KEY)?.activity).toEqual([])
+
+    setSaveProgress(true)
+    expect(readJson<{ activity: string[] }>(PREFS_KEY)?.activity).toEqual([today])
+    setSaveProgress(false)
+    expect(readJson<{ activity: string[] }>(PREFS_KEY)?.activity).toEqual([])
   })
 })

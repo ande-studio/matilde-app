@@ -2,6 +2,7 @@ import { signal } from '@preact/signals'
 import type { AgeBand, Locale } from '../../schemas/content'
 import { applyDocumentLanguage, locale } from '../i18n'
 import { PREFS_KEY, readJson, removeAll, writeJson } from '../lib/storage'
+import { dayKey, pruneActivity } from '../lib/week'
 import { resetSession } from './session'
 import { resetRouter } from './router'
 
@@ -12,6 +13,7 @@ interface StoredPrefs {
   ageFilter?: AgeFilter
   saveProgress?: boolean
   completed?: string[]
+  activity?: string[]
 }
 
 const stored = readJson<StoredPrefs>(PREFS_KEY)
@@ -22,6 +24,10 @@ export const ageFilter = signal<AgeFilter>(
 export const saveProgress = signal<boolean>(stored?.saveProgress === true)
 /** Ids de micro-lecciones completadas. Solo se persisten si `saveProgress` está activo. */
 export const completed = signal<string[]>(stored?.saveProgress === true ? (stored.completed ?? []) : [])
+/** Días ("AAAA-MM-DD") con alguna lección completada: alimenta la racha semanal. Misma regla de persistencia que `completed`. */
+export const activity = signal<string[]>(
+  stored?.saveProgress === true ? pruneActivity(stored.activity ?? [], new Date()) : [],
+)
 
 function persist(): void {
   writeJson(PREFS_KEY, {
@@ -29,6 +35,7 @@ function persist(): void {
     ageFilter: ageFilter.value,
     saveProgress: saveProgress.value,
     completed: saveProgress.value ? completed.value : [],
+    activity: saveProgress.value ? pruneActivity(activity.value, new Date()) : [],
   } satisfies StoredPrefs)
 }
 
@@ -50,6 +57,8 @@ export function setSaveProgress(value: boolean): void {
 
 export function markCompleted(id: string): void {
   if (!completed.value.includes(id)) completed.value = [...completed.value, id]
+  const today = dayKey(new Date())
+  if (!activity.value.includes(today)) activity.value = [...activity.value, today]
   persist()
 }
 
@@ -59,6 +68,7 @@ export function eraseAll(): void {
   ageFilter.value = 'all'
   saveProgress.value = false
   completed.value = []
+  activity.value = []
   locale.value = 'es'
   applyDocumentLanguage('es')
   resetSession()

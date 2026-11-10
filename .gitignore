@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+.vite/
+.wrangler/
+.obsidian/
+
+# Generado por `npm run content` a partir de content/
+src/generated/

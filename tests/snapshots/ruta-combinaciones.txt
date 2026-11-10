@@ -1,0 +1,400 @@
+peligro=si que=sexual ultimas72h=si quien=familia yo=nna → emergencia
+peligro=si que=sexual ultimas72h=si quien=familia yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=si quien=familia yo=docente → emergencia
+peligro=si que=sexual ultimas72h=si quien=familia yo=salud → emergencia
+peligro=si que=sexual ultimas72h=si quien=familia yo=otra → emergencia
+peligro=si que=sexual ultimas72h=si quien=escuela yo=nna → emergencia
+peligro=si que=sexual ultimas72h=si quien=escuela yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=si quien=escuela yo=docente → emergencia
+peligro=si que=sexual ultimas72h=si quien=escuela yo=salud → emergencia
+peligro=si que=sexual ultimas72h=si quien=escuela yo=otra → emergencia
+peligro=si que=sexual ultimas72h=si quien=comunidad yo=nna → emergencia
+peligro=si que=sexual ultimas72h=si quien=comunidad yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=si quien=comunidad yo=docente → emergencia
+peligro=si que=sexual ultimas72h=si quien=comunidad yo=salud → emergencia
+peligro=si que=sexual ultimas72h=si quien=comunidad yo=otra → emergencia
+peligro=si que=sexual ultimas72h=si quien=internet yo=nna → emergencia
+peligro=si que=sexual ultimas72h=si quien=internet yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=si quien=internet yo=docente → emergencia
+peligro=si que=sexual ultimas72h=si quien=internet yo=salud → emergencia
+peligro=si que=sexual ultimas72h=si quien=internet yo=otra → emergencia
+peligro=si que=sexual ultimas72h=si quien=no_decir yo=nna → emergencia
+peligro=si que=sexual ultimas72h=si quien=no_decir yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=si quien=no_decir yo=docente → emergencia
+peligro=si que=sexual ultimas72h=si quien=no_decir yo=salud → emergencia
+peligro=si que=sexual ultimas72h=si quien=no_decir yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no quien=familia yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no quien=familia yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no quien=familia yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no quien=familia yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no quien=familia yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no quien=escuela yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no quien=escuela yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no quien=escuela yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no quien=escuela yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no quien=escuela yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no quien=comunidad yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no quien=comunidad yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no quien=comunidad yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no quien=comunidad yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no quien=comunidad yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no quien=internet yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no quien=internet yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no quien=internet yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no quien=internet yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no quien=internet yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no quien=no_decir yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no quien=no_decir yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no quien=no_decir yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no quien=no_decir yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no quien=no_decir yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=familia yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=familia yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=familia yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=familia yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=familia yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=escuela yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=escuela yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=escuela yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=escuela yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=escuela yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=comunidad yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=comunidad yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=comunidad yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=comunidad yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=comunidad yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=internet yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=internet yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=internet yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=internet yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=internet yo=otra → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=no_decir yo=nna → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=no_decir yo=familiar → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=no_decir yo=docente → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=no_decir yo=salud → emergencia
+peligro=si que=sexual ultimas72h=no_se quien=no_decir yo=otra → emergencia
+peligro=si que=violencia ultimas72h=- quien=familia yo=nna → emergencia
+peligro=si que=violencia ultimas72h=- quien=familia yo=familiar → emergencia
+peligro=si que=violencia ultimas72h=- quien=familia yo=docente → emergencia
+peligro=si que=violencia ultimas72h=- quien=familia yo=salud → emergencia
+peligro=si que=violencia ultimas72h=- quien=familia yo=otra → emergencia
+peligro=si que=violencia ultimas72h=- quien=escuela yo=nna → emergencia
+peligro=si que=violencia ultimas72h=- quien=escuela yo=familiar → emergencia
+peligro=si que=violencia ultimas72h=- quien=escuela yo=docente → emergencia
+peligro=si que=violencia ultimas72h=- quien=escuela yo=salud → emergencia
+peligro=si que=violencia ultimas72h=- quien=escuela yo=otra → emergencia
+peligro=si que=violencia ultimas72h=- quien=comunidad yo=nna → emergencia
+peligro=si que=violencia ultimas72h=- quien=comunidad yo=familiar → emergencia
+peligro=si que=violencia ultimas72h=- quien=comunidad yo=docente → emergencia
+peligro=si que=violencia ultimas72h=- quien=comunidad yo=salud → emergencia
+peligro=si que=violencia ultimas72h=- quien=comunidad yo=otra → emergencia
+peligro=si que=violencia ultimas72h=- quien=internet yo=nna → emergencia
+peligro=si que=violencia ultimas72h=- quien=internet yo=familiar → emergencia
+peligro=si que=violencia ultimas72h=- quien=internet yo=docente → emergencia
+peligro=si que=violencia ultimas72h=- quien=internet yo=salud → emergencia
+peligro=si que=violencia ultimas72h=- quien=internet yo=otra → emergencia
+peligro=si que=violencia ultimas72h=- quien=no_decir yo=nna → emergencia
+peligro=si que=violencia ultimas72h=- quien=no_decir yo=familiar → emergencia
+peligro=si que=violencia ultimas72h=- quien=no_decir yo=docente → emergencia
+peligro=si que=violencia ultimas72h=- quien=no_decir yo=salud → emergencia
+peligro=si que=violencia ultimas72h=- quien=no_decir yo=otra → emergencia
+peligro=si que=union ultimas72h=- quien=familia yo=nna → emergencia
+peligro=si que=union ultimas72h=- quien=familia yo=familiar → emergencia
+peligro=si que=union ultimas72h=- quien=familia yo=docente → emergencia
+peligro=si que=union ultimas72h=- quien=familia yo=salud → emergencia
+peligro=si que=union ultimas72h=- quien=familia yo=otra → emergencia
+peligro=si que=union ultimas72h=- quien=escuela yo=nna → emergencia
+peligro=si que=union ultimas72h=- quien=escuela yo=familiar → emergencia
+peligro=si que=union ultimas72h=- quien=escuela yo=docente → emergencia
+peligro=si que=union ultimas72h=- quien=escuela yo=salud → emergencia
+peligro=si que=union ultimas72h=- quien=escuela yo=otra → emergencia
+peligro=si que=union ultimas72h=- quien=comunidad yo=nna → emergencia
+peligro=si que=union ultimas72h=- quien=comunidad yo=familiar → emergencia
+peligro=si que=union ultimas72h=- quien=comunidad yo=docente → emergencia
+peligro=si que=union ultimas72h=- quien=comunidad yo=salud → emergencia
+peligro=si que=union ultimas72h=- quien=comunidad yo=otra → emergencia
+peligro=si que=union ultimas72h=- quien=internet yo=nna → emergencia
+peligro=si que=union ultimas72h=- quien=internet yo=familiar → emergencia
+peligro=si que=union ultimas72h=- quien=internet yo=docente → emergencia
+peligro=si que=union ultimas72h=- quien=internet yo=salud → emergencia
+peligro=si que=union ultimas72h=- quien=internet yo=otra → emergencia
+peligro=si que=union ultimas72h=- quien=no_decir yo=nna → emergencia
+peligro=si que=union ultimas72h=- quien=no_decir yo=familiar → emergencia
+peligro=si que=union ultimas72h=- quien=no_decir yo=docente → emergencia
+peligro=si que=union ultimas72h=- quien=no_decir yo=salud → emergencia
+peligro=si que=union ultimas72h=- quien=no_decir yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=si quien=familia yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=si quien=familia yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=si quien=familia yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=si quien=familia yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=si quien=familia yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=si quien=escuela yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=si quien=escuela yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=si quien=escuela yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=si quien=escuela yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=si quien=escuela yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=si quien=comunidad yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=si quien=comunidad yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=si quien=comunidad yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=si quien=comunidad yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=si quien=comunidad yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=si quien=internet yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=si quien=internet yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=si quien=internet yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=si quien=internet yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=si quien=internet yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=si quien=no_decir yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=si quien=no_decir yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=si quien=no_decir yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=si quien=no_decir yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=si quien=no_decir yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no quien=familia yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no quien=familia yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no quien=familia yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no quien=familia yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no quien=familia yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no quien=escuela yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no quien=escuela yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no quien=escuela yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no quien=escuela yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no quien=escuela yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no quien=comunidad yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no quien=comunidad yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no quien=comunidad yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no quien=comunidad yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no quien=comunidad yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no quien=internet yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no quien=internet yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no quien=internet yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no quien=internet yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no quien=internet yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no quien=no_decir yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no quien=no_decir yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no quien=no_decir yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no quien=no_decir yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no quien=no_decir yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=familia yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=familia yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=familia yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=familia yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=familia yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=escuela yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=escuela yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=escuela yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=escuela yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=escuela yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=comunidad yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=comunidad yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=comunidad yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=comunidad yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=comunidad yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=internet yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=internet yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=internet yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=internet yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=internet yo=otra → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=no_decir yo=nna → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=no_decir yo=familiar → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=no_decir yo=docente → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=no_decir yo=salud → emergencia
+peligro=si que=no_decir ultimas72h=no_se quien=no_decir yo=otra → emergencia
+peligro=no que=sexual ultimas72h=si quien=familia yo=nna → salud_urgente + familia_nna
+peligro=no que=sexual ultimas72h=si quien=familia yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=familia yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=familia yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=si quien=familia yo=otra → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=escuela yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=escuela yo=familiar → salud_urgente + escuela_familia
+peligro=no que=sexual ultimas72h=si quien=escuela yo=docente → salud_urgente + escuela_docente
+peligro=no que=sexual ultimas72h=si quien=escuela yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=si quien=escuela yo=otra → salud_urgente + escuela_familia
+peligro=no que=sexual ultimas72h=si quien=comunidad yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=comunidad yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=comunidad yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=comunidad yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=si quien=comunidad yo=otra → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=internet yo=nna → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=si quien=internet yo=familiar → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=si quien=internet yo=docente → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=si quien=internet yo=salud → salud_urgente + personal_salud + evidencia_digital
+peligro=no que=sexual ultimas72h=si quien=internet yo=otra → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=si quien=no_decir yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=no_decir yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=no_decir yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=si quien=no_decir yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=si quien=no_decir yo=otra → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no quien=familia yo=nna → familia_nna
+peligro=no que=sexual ultimas72h=no quien=familia yo=familiar → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=familia yo=docente → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=familia yo=salud → personal_salud
+peligro=no que=sexual ultimas72h=no quien=familia yo=otra → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=escuela yo=nna → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=escuela yo=familiar → escuela_familia
+peligro=no que=sexual ultimas72h=no quien=escuela yo=docente → escuela_docente
+peligro=no que=sexual ultimas72h=no quien=escuela yo=salud → personal_salud
+peligro=no que=sexual ultimas72h=no quien=escuela yo=otra → escuela_familia
+peligro=no que=sexual ultimas72h=no quien=comunidad yo=nna → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=comunidad yo=familiar → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=comunidad yo=docente → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=comunidad yo=salud → personal_salud
+peligro=no que=sexual ultimas72h=no quien=comunidad yo=otra → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=internet yo=nna → denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no quien=internet yo=familiar → denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no quien=internet yo=docente → denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no quien=internet yo=salud → personal_salud + evidencia_digital
+peligro=no que=sexual ultimas72h=no quien=internet yo=otra → denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no quien=no_decir yo=nna → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=no_decir yo=familiar → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=no_decir yo=docente → denuncia_general
+peligro=no que=sexual ultimas72h=no quien=no_decir yo=salud → personal_salud
+peligro=no que=sexual ultimas72h=no quien=no_decir yo=otra → denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=familia yo=nna → salud_urgente + familia_nna
+peligro=no que=sexual ultimas72h=no_se quien=familia yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=familia yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=familia yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=no_se quien=familia yo=otra → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=escuela yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=escuela yo=familiar → salud_urgente + escuela_familia
+peligro=no que=sexual ultimas72h=no_se quien=escuela yo=docente → salud_urgente + escuela_docente
+peligro=no que=sexual ultimas72h=no_se quien=escuela yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=no_se quien=escuela yo=otra → salud_urgente + escuela_familia
+peligro=no que=sexual ultimas72h=no_se quien=comunidad yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=comunidad yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=comunidad yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=comunidad yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=no_se quien=comunidad yo=otra → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=internet yo=nna → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no_se quien=internet yo=familiar → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no_se quien=internet yo=docente → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no_se quien=internet yo=salud → salud_urgente + personal_salud + evidencia_digital
+peligro=no que=sexual ultimas72h=no_se quien=internet yo=otra → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=sexual ultimas72h=no_se quien=no_decir yo=nna → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=no_decir yo=familiar → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=no_decir yo=docente → salud_urgente + denuncia_general
+peligro=no que=sexual ultimas72h=no_se quien=no_decir yo=salud → salud_urgente + personal_salud
+peligro=no que=sexual ultimas72h=no_se quien=no_decir yo=otra → salud_urgente + denuncia_general
+peligro=no que=violencia ultimas72h=- quien=familia yo=nna → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=familia yo=familiar → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=familia yo=docente → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=familia yo=salud → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=familia yo=otra → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=escuela yo=nna → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=escuela yo=familiar → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=escuela yo=docente → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=escuela yo=salud → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=escuela yo=otra → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=comunidad yo=nna → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=comunidad yo=familiar → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=comunidad yo=docente → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=comunidad yo=salud → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=comunidad yo=otra → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=internet yo=nna → violencia_30364 + evidencia_digital
+peligro=no que=violencia ultimas72h=- quien=internet yo=familiar → violencia_30364 + evidencia_digital
+peligro=no que=violencia ultimas72h=- quien=internet yo=docente → violencia_30364 + evidencia_digital
+peligro=no que=violencia ultimas72h=- quien=internet yo=salud → violencia_30364 + evidencia_digital
+peligro=no que=violencia ultimas72h=- quien=internet yo=otra → violencia_30364 + evidencia_digital
+peligro=no que=violencia ultimas72h=- quien=no_decir yo=nna → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=no_decir yo=familiar → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=no_decir yo=docente → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=no_decir yo=salud → violencia_30364
+peligro=no que=violencia ultimas72h=- quien=no_decir yo=otra → violencia_30364
+peligro=no que=union ultimas72h=- quien=familia yo=nna → union_temprana
+peligro=no que=union ultimas72h=- quien=familia yo=familiar → union_temprana
+peligro=no que=union ultimas72h=- quien=familia yo=docente → union_temprana
+peligro=no que=union ultimas72h=- quien=familia yo=salud → union_temprana
+peligro=no que=union ultimas72h=- quien=familia yo=otra → union_temprana
+peligro=no que=union ultimas72h=- quien=escuela yo=nna → union_temprana
+peligro=no que=union ultimas72h=- quien=escuela yo=familiar → union_temprana
+peligro=no que=union ultimas72h=- quien=escuela yo=docente → union_temprana
+peligro=no que=union ultimas72h=- quien=escuela yo=salud → union_temprana
+peligro=no que=union ultimas72h=- quien=escuela yo=otra → union_temprana
+peligro=no que=union ultimas72h=- quien=comunidad yo=nna → union_temprana
+peligro=no que=union ultimas72h=- quien=comunidad yo=familiar → union_temprana
+peligro=no que=union ultimas72h=- quien=comunidad yo=docente → union_temprana
+peligro=no que=union ultimas72h=- quien=comunidad yo=salud → union_temprana
+peligro=no que=union ultimas72h=- quien=comunidad yo=otra → union_temprana
+peligro=no que=union ultimas72h=- quien=internet yo=nna → union_temprana + evidencia_digital
+peligro=no que=union ultimas72h=- quien=internet yo=familiar → union_temprana + evidencia_digital
+peligro=no que=union ultimas72h=- quien=internet yo=docente → union_temprana + evidencia_digital
+peligro=no que=union ultimas72h=- quien=internet yo=salud → union_temprana + evidencia_digital
+peligro=no que=union ultimas72h=- quien=internet yo=otra → union_temprana + evidencia_digital
+peligro=no que=union ultimas72h=- quien=no_decir yo=nna → union_temprana
+peligro=no que=union ultimas72h=- quien=no_decir yo=familiar → union_temprana
+peligro=no que=union ultimas72h=- quien=no_decir yo=docente → union_temprana
+peligro=no que=union ultimas72h=- quien=no_decir yo=salud → union_temprana
+peligro=no que=union ultimas72h=- quien=no_decir yo=otra → union_temprana
+peligro=no que=no_decir ultimas72h=si quien=familia yo=nna → salud_urgente + familia_nna
+peligro=no que=no_decir ultimas72h=si quien=familia yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=familia yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=familia yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=si quien=familia yo=otra → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=escuela yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=escuela yo=familiar → salud_urgente + escuela_familia
+peligro=no que=no_decir ultimas72h=si quien=escuela yo=docente → salud_urgente + escuela_docente
+peligro=no que=no_decir ultimas72h=si quien=escuela yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=si quien=escuela yo=otra → salud_urgente + escuela_familia
+peligro=no que=no_decir ultimas72h=si quien=comunidad yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=comunidad yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=comunidad yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=comunidad yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=si quien=comunidad yo=otra → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=internet yo=nna → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=si quien=internet yo=familiar → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=si quien=internet yo=docente → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=si quien=internet yo=salud → salud_urgente + personal_salud + evidencia_digital
+peligro=no que=no_decir ultimas72h=si quien=internet yo=otra → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=si quien=no_decir yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=no_decir yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=no_decir yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=si quien=no_decir yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=si quien=no_decir yo=otra → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=familia yo=nna → familia_nna
+peligro=no que=no_decir ultimas72h=no quien=familia yo=familiar → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=familia yo=docente → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=familia yo=salud → personal_salud
+peligro=no que=no_decir ultimas72h=no quien=familia yo=otra → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=escuela yo=nna → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=escuela yo=familiar → escuela_familia
+peligro=no que=no_decir ultimas72h=no quien=escuela yo=docente → escuela_docente
+peligro=no que=no_decir ultimas72h=no quien=escuela yo=salud → personal_salud
+peligro=no que=no_decir ultimas72h=no quien=escuela yo=otra → escuela_familia
+peligro=no que=no_decir ultimas72h=no quien=comunidad yo=nna → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=comunidad yo=familiar → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=comunidad yo=docente → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=comunidad yo=salud → personal_salud
+peligro=no que=no_decir ultimas72h=no quien=comunidad yo=otra → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=internet yo=nna → denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no quien=internet yo=familiar → denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no quien=internet yo=docente → denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no quien=internet yo=salud → personal_salud + evidencia_digital
+peligro=no que=no_decir ultimas72h=no quien=internet yo=otra → denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no quien=no_decir yo=nna → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=no_decir yo=familiar → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=no_decir yo=docente → denuncia_general
+peligro=no que=no_decir ultimas72h=no quien=no_decir yo=salud → personal_salud
+peligro=no que=no_decir ultimas72h=no quien=no_decir yo=otra → denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=familia yo=nna → salud_urgente + familia_nna
+peligro=no que=no_decir ultimas72h=no_se quien=familia yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=familia yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=familia yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=no_se quien=familia yo=otra → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=escuela yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=escuela yo=familiar → salud_urgente + escuela_familia
+peligro=no que=no_decir ultimas72h=no_se quien=escuela yo=docente → salud_urgente + escuela_docente
+peligro=no que=no_decir ultimas72h=no_se quien=escuela yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=no_se quien=escuela yo=otra → salud_urgente + escuela_familia
+peligro=no que=no_decir ultimas72h=no_se quien=comunidad yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=comunidad yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=comunidad yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=comunidad yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=no_se quien=comunidad yo=otra → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=internet yo=nna → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no_se quien=internet yo=familiar → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no_se quien=internet yo=docente → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no_se quien=internet yo=salud → salud_urgente + personal_salud + evidencia_digital
+peligro=no que=no_decir ultimas72h=no_se quien=internet yo=otra → salud_urgente + denuncia_general + evidencia_digital
+peligro=no que=no_decir ultimas72h=no_se quien=no_decir yo=nna → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=no_decir yo=familiar → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=no_decir yo=docente → salud_urgente + denuncia_general
+peligro=no que=no_decir ultimas72h=no_se quien=no_decir yo=salud → salud_urgente + personal_salud
+peligro=no que=no_decir ultimas72h=no_se quien=no_decir yo=otra → salud_urgente + denuncia_general

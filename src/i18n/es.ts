@@ -18,6 +18,7 @@ export const es = {
   'language.es': 'Español',
   'language.qu': 'Runasimi',
 
+  'banner.region': 'Avisos',
   'banner.review': 'Contenido en revisión: borrador sin validar. No lo uses como guía clínica ni legal.',
   'banner.draft': 'Canal de desarrollo: contenido sin filtrar.',
   'banner.qu': 'Versión quechua de trabajo. Revisión lingüística y comunitaria pendiente.',
@@ -93,6 +94,7 @@ export const es = {
   'route.intro': 'Responde con opciones. No hay campos para escribir y tus respuestas no se guardan.',
   'route.step': 'Pregunta {n}',
   'route.restart': 'Empezar de nuevo',
+  'route.undo': 'Pregunta anterior',
   'route.you': 'Estás respondiendo como: {role}',
   'route.change': 'Cambiar',
   'route.result': 'Qué hacer',

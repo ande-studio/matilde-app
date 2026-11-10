@@ -33,3 +33,8 @@ export function t(key: MessageKey, params?: Record<string, string | number>): st
 export function hasTranslation(key: MessageKey): boolean {
   return locale.value === 'es' || qu[key] !== undefined
 }
+
+/** Mensaje por clave dinámica (p. ej. ids de derechos del contenido); devuelve `fallback` si no existe. */
+export function tOr(key: string, fallback: string): string {
+  return key in es ? t(key as MessageKey) : fallback
+}

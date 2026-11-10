@@ -9,11 +9,12 @@
     "node": ">=22.12"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "content": "tsx tools/build-content.ts",
+    "dev": "npm run content && vite",
+    "build": "npm run content && tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "typecheck": "npm run content && tsc --noEmit",
+    "test": "npm run content && vitest run --passWithNoTests",
     "icons": "tsx tools/make-icons.ts"
   },
   "dependencies": {

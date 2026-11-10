@@ -11,11 +11,12 @@
   "scripts": {
     "content": "tsx tools/build-content.ts",
     "dev": "npm run content && vite",
-    "build": "npm run content && tsc --noEmit && vite build",
+    "build": "npm run content && tsc --noEmit && vite build && tsx tools/check-build.ts",
     "preview": "vite preview",
     "typecheck": "npm run content && tsc --noEmit",
     "test": "npm run content && vitest run --passWithNoTests",
-    "icons": "tsx tools/make-icons.ts"
+    "icons": "tsx tools/make-icons.ts",
+    "check:build": "tsx tools/check-build.ts"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",

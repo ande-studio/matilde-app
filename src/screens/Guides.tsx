@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
 import type { Category } from '../../schemas/content'
-import { Icon, MissingReviews, ScreenTitle, Sections, StatusBadge, BackButton, ExternalLink } from '../components/ui'
+import { ExploreTabs } from '../components/explore'
+import { Eyebrow, Icon, MissingReviews, ScreenTitle, Sections, StatusBadge, BackButton, ExternalLink, type IconName } from '../components/ui'
 import { byOrder, pieceById, piecesOf, reviewOf, textFor } from '../content'
 import { locale, t, tOr, type MessageKey } from '../i18n'
 import { matchesAge } from '../lib/age'
@@ -8,6 +9,15 @@ import { ageFilter } from '../state/prefs'
 import { go } from '../state/router'
 
 const CATEGORIES: Category[] = ['abordar', 'menstruacion', 'evaluar', 'cuidados', 'mitos', 'proteccion']
+
+const CATEGORY_ICON: Record<Category, IconName> = {
+  abordar: 'chat',
+  menstruacion: 'flower',
+  evaluar: 'shield',
+  cuidados: 'leaf',
+  mitos: 'sun',
+  proteccion: 'heart',
+}
 
 export function Guides({ category }: { category?: Category }) {
   const [active, setActive] = useState<Category | 'all'>(category ?? 'all')
@@ -19,8 +29,10 @@ export function Guides({ category }: { category?: Category }) {
 
   return (
     <>
+      <Eyebrow>{t('explore.eyebrow')}</Eyebrow>
       <ScreenTitle>{t('guides.title')}</ScreenTitle>
       <p class="lead">{t('guides.intro')}</p>
+      <ExploreTabs active="guides" />
 
       <div class="chips" role="group" aria-label={t('guides.title')}>
         <button type="button" class="chip" aria-pressed={active === 'all'} onClick={() => setActive('all')}>
@@ -34,22 +46,26 @@ export function Guides({ category }: { category?: Category }) {
       </div>
 
       {shown.length === 0 && <p class="muted">{t('guides.empty')}</p>}
-      <ul class="cards">
+      <ul class="grid">
         {shown.map((guide) => {
           const text = textFor(guide, locale.value)
           if (!text) return null
           return (
             <li key={guide.id}>
-              <button type="button" class="card" onClick={() => go({ name: 'guide', id: guide.id })}>
-                <span class="card-body">
-                  <strong>{text.text.title}</strong>
-                  {text.text.summary && <span class="muted">{text.text.summary}</span>}
-                  <span class="card-meta">
-                    <span class="badge">{t(`category.${guide.category}` as MessageKey)}</span>
-                    <StatusBadge review={reviewOf(guide, locale.value)} />
-                  </span>
+              <button type="button" class="topic-card" onClick={() => go({ name: 'guide', id: guide.id })}>
+                <span class="card-icon">
+                  <Icon name={CATEGORY_ICON[guide.category]} />
                 </span>
-                <Icon name="chevron" />
+                <h3>{text.text.title}</h3>
+                {text.text.summary && <p>{text.text.summary}</p>}
+                <span class="card-meta">
+                  <span class="badge">{t(`category.${guide.category}` as MessageKey)}</span>
+                  <StatusBadge review={reviewOf(guide, locale.value)} />
+                </span>
+                <span class="card-cta">
+                  {t('guides.open')}
+                  <Icon name="arrow" />
+                </span>
               </button>
             </li>
           )

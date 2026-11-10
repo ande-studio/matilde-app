@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks'
 import type { Locale } from '../../schemas/content'
-import { BackButton, Icon, ScreenTitle } from '../components/ui'
+import { BackButton, Eyebrow, Icon, ScreenTitle } from '../components/ui'
 import { byOrder, pieceById, piecesOf, reviewOf, textFor } from '../content'
 import { locale, t, type MessageKey } from '../i18n'
 import { matchesAge } from '../lib/age'
@@ -16,6 +16,7 @@ export function Share() {
 
   return (
     <>
+      <Eyebrow>{t('share.eyebrow')}</Eyebrow>
       <ScreenTitle>{t('share.title')}</ScreenTitle>
       <p class="lead">{t('share.intro')}</p>
 
@@ -28,31 +29,36 @@ export function Share() {
       </div>
 
       {pieces.length === 0 && <p class="muted">{t('share.empty')}</p>}
-      <ul class="cards">
-        {pieces.map((piece) => {
+      <ul class="grid">
+        {pieces.map((piece, i) => {
           const text = textFor(piece, locale.value)
           if (!text) return null
           return (
             <li key={piece.id}>
-              <button type="button" class="card" onClick={() => go({ name: 'share-view', id: piece.id })}>
-                <span class="card-body">
-                  <strong>{text.text.title}</strong>
-                  {text.text.summary && <span class="muted">{text.text.summary}</span>}
-                  <span class="card-meta">
-                    {piece.ageBands.map((a) => (
-                      <span class="badge" key={a}>
-                        {t(`ageBand.${a}` as MessageKey)}
-                      </span>
-                    ))}
-                  </span>
+              <button type="button" class="topic-card" onClick={() => go({ name: 'share-view', id: piece.id })}>
+                <span class="card-icon">
+                  <Icon name={i % 2 === 0 ? 'sun' : 'heart'} />
                 </span>
-                <Icon name="present" />
+                <h3>{text.text.title}</h3>
+                {text.text.summary && <p>{text.text.summary}</p>}
+                <span class="card-meta">
+                  {piece.ageBands.map((a) => (
+                    <span class="badge" key={a}>
+                      {t(`ageBand.${a}` as MessageKey)}
+                    </span>
+                  ))}
+                </span>
+                <span class="card-cta">
+                  {t('share.start')}
+                  <Icon name="arrow" />
+                </span>
                 <span class="visually-hidden">{t('share.view')}</span>
               </button>
             </li>
           )
         })}
       </ul>
+      <p class="notice">{t('share.notice')}</p>
     </>
   )
 }

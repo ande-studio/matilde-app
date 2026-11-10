@@ -1,6 +1,5 @@
 import { signal } from '@preact/signals'
-import { Icon, ScreenTitle } from '../components/ui'
-import { goRoot } from '../state/router'
+import { Eyebrow, Icon, Modal, ScreenTitle } from '../components/ui'
 import { contentMeta } from '../content'
 import { locale, t, type MessageKey } from '../i18n'
 import { quickExit } from '../lib/exit'
@@ -9,42 +8,55 @@ import {
   eraseAll,
   saveProgress,
   setAgeFilter,
-  setLocale,
   setSaveProgress,
   type AgeFilter,
 } from '../state/prefs'
+import { goRoot } from '../state/router'
+import { languageOpen } from '../state/ui'
 
 const AGES: AgeFilter[] = ['all', '9-11', '12-14']
 const confirming = signal(false)
 const erased = signal(false)
 
-export function Settings() {
-  const onErase = () => {
+function EraseDialog() {
+  const close = () => (confirming.value = false)
+  const confirm = () => {
     eraseAll()
     goRoot({ name: 'settings' }) // se queda en Ajustes para ver la confirmación
     confirming.value = false
     erased.value = true
   }
-
   return (
-    <>
+    <Modal titleId="erase-title" role="alertdialog" onClose={close}>
+      <h2 id="erase-title" tabIndex={-1}>
+        {t('settings.erase.title')}
+      </h2>
+      <p>{t('settings.erase.body')}</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn--quiet" onClick={close}>
+          {t('settings.erase.cancel')}
+        </button>
+        <button type="button" class="btn btn--alert" onClick={confirm}>
+          {t('settings.erase.confirm')}
+        </button>
+      </div>
+    </Modal>
+  )
+}
+
+export function Settings() {
+  return (
+    <div class="settings">
+      <Eyebrow>{t('settings.eyebrow')}</Eyebrow>
       <ScreenTitle>{t('settings.title')}</ScreenTitle>
+      <p class="lead">{t('settings.intro')}</p>
 
-      <section class="block">
-        <h2>{t('settings.language')}</h2>
-        <div class="segmented" role="group" aria-label={t('settings.language')}>
-          {(['es', 'qu'] as const).map((l) => (
-            <button type="button" key={l} aria-pressed={locale.value === l} onClick={() => setLocale(l)}>
-              {t(l === 'es' ? 'language.es' : 'language.qu')}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section class="block">
-        <h2>
-          <label for="age">{t('settings.age')}</label>
-        </h2>
+      <section class="setting-panel">
+        <h2>{t('settings.role.title')}</h2>
+        <p>{t('settings.role.body')}</p>
+        <label class="field" for="age">
+          {t('settings.age')}
+        </label>
         <select id="age" value={ageFilter.value} onChange={(e) => setAgeFilter(e.currentTarget.value as AgeFilter)}>
           {AGES.map((a) => (
             <option key={a} value={a}>
@@ -55,44 +67,39 @@ export function Settings() {
         <p class="muted small">{t('settings.age.hint')}</p>
       </section>
 
-      <section class="block">
+      <section class="setting-panel">
+        <h2>{t('settings.language')}</h2>
+        <p>{t('settings.language.body')}</p>
+        <p class="muted small">{t(locale.value === 'es' ? 'language.es.long' : 'language.qu.long')}</p>
+        <button type="button" class="btn btn--outline" onClick={() => (languageOpen.value = true)}>
+          <Icon name="globe" />
+          {t('settings.language.change')}
+        </button>
+      </section>
+
+      <section class="setting-panel">
         <h2>{t('settings.privacy.title')}</h2>
         <label class="switch">
+          <span>{t('settings.progress')}</span>
           <input
             type="checkbox"
             checked={saveProgress.value}
             onChange={(e) => setSaveProgress(e.currentTarget.checked)}
           />
-          <span>{t('settings.progress')}</span>
         </label>
         <p class="muted small">{t('settings.progress.hint')}</p>
         <p>{t('settings.privacy.body')}</p>
 
-        {!confirming.value ? (
-          <button
-            type="button"
-            class="btn btn--alert-quiet"
-            onClick={() => {
-              erased.value = false
-              confirming.value = true
-            }}
-          >
-            {t('settings.erase')}
-          </button>
-        ) : (
-          <div class="confirm" role="alertdialog" aria-labelledby="erase-title" aria-describedby="erase-body">
-            <h3 id="erase-title">{t('settings.erase.title')}</h3>
-            <p id="erase-body">{t('settings.erase.body')}</p>
-            <div class="actions">
-              <button type="button" class="btn btn--quiet" onClick={() => (confirming.value = false)}>
-                {t('settings.erase.cancel')}
-              </button>
-              <button type="button" class="btn btn--alert" onClick={onErase}>
-                {t('settings.erase.confirm')}
-              </button>
-            </div>
-          </div>
-        )}
+        <button
+          type="button"
+          class="danger-btn"
+          onClick={() => {
+            erased.value = false
+            confirming.value = true
+          }}
+        >
+          {t('settings.erase')}
+        </button>
         {erased.value && (
           <p class="callout callout--info" role="status">
             {t('settings.erase.done')}
@@ -100,7 +107,7 @@ export function Settings() {
         )}
       </section>
 
-      <section class="block">
+      <section class="setting-panel">
         <h2>{t('settings.exit.title')}</h2>
         <p>{t('settings.exit.body')}</p>
         <button type="button" class="btn btn--quiet" onClick={quickExit}>
@@ -109,13 +116,15 @@ export function Settings() {
         </button>
       </section>
 
-      <section class="block small">
+      <section class="setting-panel">
         <h2>{t('settings.about.title')}</h2>
         <p>{t('settings.about.stage')}</p>
-        <p class="muted">
+        <p class="muted small">
           {t('settings.about.version', { version: contentMeta.version, channel: contentMeta.channel })}
         </p>
       </section>
-    </>
+
+      {confirming.value && <EraseDialog />}
+    </div>
   )
 }

@@ -1,4 +1,5 @@
-import { BackButton, ScreenTitle } from '../components/ui'
+import { ExploreTabs } from '../components/explore'
+import { Eyebrow, ScreenTitle } from '../components/ui'
 import { byOrder, piecesOf, reviewOf } from '../content'
 import { locale, t } from '../i18n'
 
@@ -7,15 +8,16 @@ export function Phrases() {
   const groups = piecesOf('phrases').sort(byOrder)
   return (
     <>
-      <BackButton />
+      <Eyebrow>{t('explore.eyebrow')}</Eyebrow>
       <ScreenTitle>{t('phrases.title')}</ScreenTitle>
       <p class="lead">{t('phrases.intro')}</p>
+      <ExploreTabs active="phrases" />
       <p class="callout callout--info">{t('phrases.note')}</p>
 
       {groups.map((group) => {
         const review = reviewOf(group, 'qu')
         return (
-          <section class="block" key={group.id}>
+          <section class="panel" key={group.id}>
             <h2>{group.locales.es?.title}</h2>
             {!review.approved && <span class="badge badge--pending">{t('status.pending')}</span>}
             <ul class="phrases">

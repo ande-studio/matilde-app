@@ -1,0 +1,91 @@
+{
+  "kind": "phrases",
+  "id": "frases-para-abrir-la-conversacion",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 1,
+  "ageBands": [],
+  "rights": [
+    "informacion"
+  ],
+  "sources": [],
+  "reviews": {
+    "es": [],
+    "qu": [
+      {
+        "type": "linguistica",
+        "status": "pending",
+        "notes": "Propuestas tomadas del kit del prototipo (2026-11-09); varias frases siguen sin traducción. Sin revisión de hablantes."
+      }
+    ]
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Frases para abrir la conversación",
+      "summary": "Frases en español y su propuesta en quechua. Las traducciones faltantes están pendientes: no se inventan.",
+      "sections": []
+    }
+  },
+  "items": [
+    {
+      "id": "escuchar",
+      "es": "Estoy aquí para escucharte. Tus preguntas importan.",
+      "qu": "Kaypi kachkani uyarinaypaq. Tapukuyniykikuna chaninniyuqmi.",
+      "pron": null,
+      "quSource": "kit-prototipo-2026-11-09"
+    },
+    {
+      "id": "conversar",
+      "es": "Si tienes preguntas sobre los cambios de tu cuerpo, podemos conversar.",
+      "qu": "Kurkuypa tikrakuyninmanta tapukuyniyki kaptinqa, rimayta atinchik.",
+      "pron": null,
+      "quSource": "kit-prototipo-2026-11-09"
+    },
+    {
+      "id": "sin-verguenza",
+      "es": "Puedes hablar conmigo sin vergüenza. Tus preguntas importan.",
+      "qu": "Ama p’inqakuspa ñuqawan rimay. Tapukuyniykikunaqa chaninniyuqmi.",
+      "pron": null,
+      "quSource": "kit-prototipo-2026-11-09"
+    },
+    {
+      "id": "buscar-informacion",
+      "es": "Vamos a buscar información confiable juntas.",
+      "qu": "Kuska chiqap willakuyta maskasun.",
+      "pron": null,
+      "quSource": "kit-prototipo-2026-11-09"
+    },
+    {
+      "id": "pedir-ayuda",
+      "es": "Si alguien te hace sentir mal o insegura, puedes pedir ayuda.",
+      "qu": "Pipas mana allin kasqaykita musyachisuptinqa, yanapayta mañakuyta atinki.",
+      "pron": null,
+      "quSource": "kit-prototipo-2026-11-09"
+    },
+    {
+      "id": "que-sabes",
+      "es": "¿Qué sabes o has escuchado sobre estos cambios?",
+      "qu": null,
+      "pron": null
+    },
+    {
+      "id": "que-entender",
+      "es": "¿Qué te gustaría entender?",
+      "qu": null,
+      "pron": null
+    },
+    {
+      "id": "no-es-tu-culpa",
+      "es": "No es tu culpa.",
+      "qu": null,
+      "pron": null
+    },
+    {
+      "id": "hiciste-bien",
+      "es": "Hiciste bien en contármelo.",
+      "qu": null,
+      "pron": null
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "kind": "lesson",
+  "id": "orientar-a-la-adolescente-y-su-familia",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 1,
+  "durationMin": 5,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [
+    {
+      "label": "UNICEF — Cómo hablar de menstruación en casa",
+      "url": "https://www.unicef.org/parenting/es/salud/como-hablar-de-menstruacion-en-casa"
+    }
+  ],
+  "curriculum": {
+    "sddRef": "S1"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Orientar a la adolescente y a su familia",
+      "summary": "Conocer ayuda a acompañar.",
+      "sections": [
+        {
+          "heading": "Conocer ayuda a acompañar",
+          "paragraphs": [
+            "La menstruación es un proceso natural del cuerpo. Hablar de ella con calma y sin vergüenza es una oportunidad para acompañar."
+          ]
+        },
+        {
+          "heading": "Qué puedes hacer",
+          "bullets": [
+            "Antes de empezar, pregúntale qué sabe y qué le gustaría entender.",
+            "Escucha sin burlas ni juicios."
+          ]
+        }
+      ],
+      "activity": {
+        "prompt": "Si no sabes qué responder a una pregunta… ¿qué frase abre un espacio de confianza?",
+        "options": [
+          {
+            "id": "a",
+            "text": "“De eso no se habla.”",
+            "correct": false,
+            "feedback": "Podemos intentarlo otra vez. Una respuesta que escucha sin juzgar ayuda a abrir la conversación."
+          },
+          {
+            "id": "b",
+            "text": "“Tu pregunta importa. Busquemos información confiable.”",
+            "correct": true,
+            "feedback": "Esa frase escucha, respeta y permite aprender en compañía."
+          },
+          {
+            "id": "c",
+            "text": "“Ya deberías saberlo.”",
+            "correct": false,
+            "feedback": "Podemos intentarlo otra vez. Una respuesta que escucha sin juzgar ayuda a abrir la conversación."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "guide",
+  "id": "mitos-y-creencias",
+  "topic": "educacion_sexual",
+  "category": "mitos",
+  "order": 6,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "F3"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Mitos y creencias: cómo conversar sin confrontar",
+      "summary": "Las creencias y las dudas merecen una conversación respetuosa.",
+      "sections": [
+        {
+          "heading": "Cómo conversar",
+          "bullets": [
+            "Escucha primero: las creencias y las dudas merecen una conversación respetuosa.",
+            "Si no sabes una respuesta, puedes decir: “Vamos a buscar información confiable juntas”."
+          ]
+        },
+        {
+          "heading": "Mitos frecuentes a revisar",
+          "bullets": [
+            "Que la niña no debe bañarse durante la regla.",
+            "Que la niña no debe ir a la escuela durante la regla."
+          ]
+        },
+        {
+          "heading": "Principio",
+          "paragraphs": [
+            "La menstruación no es motivo para faltar a la escuela ni para dejar de hacer actividades."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "La corrección de cada mito con evidencia está pendiente de revisión sanitaria y comunitaria."
+          }
+        }
+      ]
+    }
+  }
+}

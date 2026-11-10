@@ -1,0 +1,56 @@
+{
+  "kind": "guide",
+  "id": "senales-de-alerta",
+  "topic": "abuso_violencia",
+  "category": "proteccion",
+  "order": 7,
+  "ageBands": [],
+  "rights": [
+    "proteccion"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "002 · Señales de alerta"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Señales de alerta de violencia o abuso",
+      "summary": "Qué observar, a nivel de patrones, y qué recordar.",
+      "sections": [
+        {
+          "heading": "Señales a observar",
+          "bullets": [
+            "Cambios en la conducta o el ánimo.",
+            "Miedo o rechazo a una persona o a un lugar.",
+            "Conductas o conocimientos sexuales que no corresponden a la edad.",
+            "Un adulto que busca quedarse a solas con la niña, le pide secretos, le da regalos especiales o la contacta a escondidas.",
+            "Molestias o lesiones físicas.",
+            "Cambios en la escuela, el sueño o la alimentación.",
+            "Abandono de la escuela.",
+            "Una relación o propuesta de unión con una persona mayor.",
+            "Embarazo en una niña o adolescente."
+          ]
+        },
+        {
+          "heading": "Qué recordar",
+          "bullets": [
+            "Una sola señal no prueba nada.",
+            "No te corresponde investigar ni probar.",
+            "Ante un relato o varias señales, busca orientación hoy."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "safety",
+            "text": "Si sospechas violencia, abre la ruta “¿Qué hago?”."
+          }
+        }
+      ]
+    }
+  }
+}

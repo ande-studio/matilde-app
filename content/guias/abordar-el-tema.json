@@ -1,0 +1,71 @@
+{
+  "kind": "guide",
+  "id": "abordar-el-tema",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 1,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [
+    {
+      "label": "UNICEF — Cómo hablar de menstruación en casa",
+      "url": "https://www.unicef.org/parenting/es/salud/como-hablar-de-menstruacion-en-casa"
+    }
+  ],
+  "curriculum": {
+    "sddRef": "S1, F6"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Cómo abordar el tema con una niña o adolescente",
+      "summary": "Frases y preguntas para abrir la conversación con confianza y sin vergüenza.",
+      "sections": [
+        {
+          "heading": "Qué decir",
+          "bullets": [
+            "“Estoy aquí para escucharte. Tus preguntas importan.”",
+            "“Si tienes preguntas sobre los cambios de tu cuerpo, podemos conversar.”",
+            "“Vamos a buscar información confiable juntas.”"
+          ]
+        },
+        {
+          "heading": "Qué preguntar",
+          "bullets": [
+            "¿Qué sabes o has escuchado sobre estos cambios?",
+            "¿Qué te gustaría entender?"
+          ]
+        },
+        {
+          "heading": "Cómo hacerlo",
+          "bullets": [
+            "Elige un momento tranquilo y privado.",
+            "No hace falta explicarlo todo de una sola vez.",
+            "Escucha sin burlas ni juicios."
+          ]
+        },
+        {
+          "heading": "Qué evitar",
+          "bullets": [
+            "“De eso no se habla.”",
+            "“Ya deberías saberlo.”",
+            "Burlarse o juzgar sus dudas."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "info",
+            "text": "Esta herramienta no pide ni guarda datos de la paciente."
+          }
+        }
+      ]
+    }
+  }
+}

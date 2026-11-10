@@ -1,0 +1,48 @@
+{
+  "kind": "guide",
+  "id": "cuando-evaluar-o-derivar",
+  "topic": "educacion_sexual",
+  "category": "evaluar",
+  "order": 4,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "S2, F5"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Cuándo evaluar o derivar",
+      "summary": "Orientación sobre cuándo remitir a un establecimiento de salud.",
+      "sections": [
+        {
+          "heading": "Alcance de esta herramienta",
+          "paragraphs": [
+            "No diagnostica ni recomienda medicamentos o dosis. Orienta y deriva a un establecimiento de salud."
+          ]
+        },
+        {
+          "heading": "Señales para ir al centro de salud",
+          "bullets": [
+            "Primera regla antes de los 9 años, o sin primera regla a los 15 años (caso límite señalado en el SDD).",
+            "Dolor: orientar a consultar en un establecimiento de salud."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "Los criterios clínicos están pendientes de revisión sanitaria y de la norma técnica vigente del MINSA."
+          }
+        }
+      ]
+    }
+  }
+}

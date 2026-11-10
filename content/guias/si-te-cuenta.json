@@ -1,0 +1,56 @@
+{
+  "kind": "guide",
+  "id": "si-te-cuenta",
+  "topic": "abuso_violencia",
+  "category": "proteccion",
+  "order": 8,
+  "ageBands": [],
+  "rights": [
+    "proteccion"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "002 · Si te cuenta"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Si una niña te cuenta algo",
+      "summary": "Cómo reaccionar en ese momento.",
+      "sections": [
+        {
+          "heading": "Qué hacer, en este orden",
+          "steps": [
+            "Escúchala con calma.",
+            "Créele.",
+            "Dile que no es su culpa y que hizo bien en contarlo.",
+            "No le pidas detalles ni la interrogues.",
+            "No la obligues a repetirlo frente a otros.",
+            "No enfrentes ni avises a la persona señalada.",
+            "No busques un arreglo con la familia o la comunidad.",
+            "Protégela y busca ayuda hoy."
+          ]
+        },
+        {
+          "heading": "Mensajes que siempre se sostienen",
+          "bullets": [
+            "No es tu culpa.",
+            "Tienes derecho a contarlo.",
+            "Pedir ayuda está bien.",
+            "No tienes que probar nada."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "safety",
+            "text": "Para saber a dónde ir y qué pasos seguir, abre la ruta “¿Qué hago?”. Si eres personal de salud, ahí verás tu obligación de denunciar."
+          }
+        }
+      ]
+    }
+  }
+}

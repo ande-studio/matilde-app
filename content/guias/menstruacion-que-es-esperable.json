@@ -1,0 +1,53 @@
+{
+  "kind": "guide",
+  "id": "menstruacion-que-es-esperable",
+  "topic": "educacion_sexual",
+  "category": "menstruacion",
+  "order": 3,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [
+    {
+      "label": "UNICEF — Guía de salud e higiene menstrual (2019)",
+      "url": "https://www.unicef.org/media/91341/file/UNICEF-Guidance-menstrual-healthhygiene-2019.pdf"
+    }
+  ],
+  "curriculum": {
+    "sddRef": "F1, S2"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Menstruación: qué es esperable",
+      "summary": "La idea central y cómo explicarla.",
+      "sections": [
+        {
+          "heading": "La idea central",
+          "paragraphs": [
+            "La menstruación es un proceso natural del cuerpo y una parte normal del desarrollo, sin secreto ni estigma."
+          ]
+        },
+        {
+          "heading": "Cómo explicarlo",
+          "bullets": [
+            "Usa lenguaje objetivo y adecuado a la edad.",
+            "Preséntala como un proceso natural, sin vergüenza ni secreto."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "Pendiente: rangos de edad, duración y variaciones esperables. Requieren revisión sanitaria y la norma técnica vigente del MINSA para la atención de adolescentes."
+          }
+        }
+      ]
+    }
+  }
+}

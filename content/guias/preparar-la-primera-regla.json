@@ -1,0 +1,53 @@
+{
+  "kind": "guide",
+  "id": "preparar-la-primera-regla",
+  "topic": "educacion_sexual",
+  "category": "menstruacion",
+  "order": 2,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [
+    {
+      "label": "UNICEF — Cómo hablar de menstruación en casa",
+      "url": "https://www.unicef.org/parenting/es/salud/como-hablar-de-menstruacion-en-casa"
+    }
+  ],
+  "curriculum": {
+    "sddRef": "F2"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Preparar a la niña y a su familia antes de la primera regla",
+      "summary": "Cómo conversar y qué tener listo antes de que llegue.",
+      "sections": [
+        {
+          "heading": "Qué decir",
+          "bullets": [
+            "“Si tienes preguntas sobre los cambios de tu cuerpo, podemos conversar.”"
+          ]
+        },
+        {
+          "heading": "Con la familia",
+          "bullets": [
+            "Propón una conversación sencilla, en un momento tranquilo y privado.",
+            "Sugiere tener materiales listos en casa y explicarle antes de que ocurra."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "Contenido práctico pendiente de revisión sanitaria y comunitaria."
+          }
+        }
+      ]
+    }
+  }
+}

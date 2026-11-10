@@ -1,0 +1,48 @@
+{
+  "kind": "guide",
+  "id": "higiene-y-materiales",
+  "topic": "educacion_sexual",
+  "category": "cuidados",
+  "order": 5,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [
+    {
+      "label": "UNICEF — Guía de salud e higiene menstrual (2019)",
+      "url": "https://www.unicef.org/media/91341/file/UNICEF-Guidance-menstrual-healthhygiene-2019.pdf"
+    }
+  ],
+  "curriculum": {
+    "sddRef": "F4"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Higiene y materiales",
+      "summary": "Materiales y cuidados cotidianos, según el contexto de la comunidad.",
+      "sections": [
+        {
+          "heading": "Materiales",
+          "bullets": [
+            "Toallas higiénicas y paños reutilizables.",
+            "Cómo lavarlos y secarlos.",
+            "Si no hay materiales comerciales en la comunidad, ofrecer opciones reutilizables."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "Contenido práctico pendiente de revisión sanitaria y comunitaria."
+          }
+        }
+      ]
+    }
+  }
+}

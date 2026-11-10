@@ -1,0 +1,60 @@
+{
+  "kind": "share",
+  "id": "siempre-puedes-preguntar",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 1,
+  "ageBands": [
+    "9-11"
+  ],
+  "rights": [
+    "informacion",
+    "proteccion"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "001 · Para mostrarle"
+  },
+  "reviews": {
+    "es": [],
+    "qu": [
+      {
+        "type": "linguistica",
+        "status": "pending",
+        "notes": "Propuesta tomada del kit del prototipo (2026-11-09); traducción parcial y sin revisión."
+      }
+    ]
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Siempre puedes preguntar",
+      "summary": "Un pequeño mensaje para abrir una conversación de confianza.",
+      "sections": [
+        {
+          "paragraphs": [
+            "Tus preguntas importan.",
+            "La menstruación es un proceso natural del cuerpo.",
+            "No tienes que tener todas las respuestas. Puedes hablar con una persona adulta de confianza que te escuche y te acompañe.",
+            "Si alguien te hace sentir mal o insegura, puedes pedir ayuda.",
+            "Si alguien te hace sentir mal, cuéntale a un adulto de confianza. Si no te cree, cuéntale a otro.",
+            "Si algo te pasa, no es tu culpa."
+          ]
+        }
+      ]
+    },
+    "qu": {
+      "title": "Hayk’aqpas tapukuyta atinki",
+      "summary": "Allin sunquwan rimanakuyta qallarinapaq huch’uy willakuy.",
+      "sections": [
+        {
+          "paragraphs": [
+            "Tapukuyniykikuna chaninniyuqmi.",
+            "Mana llapa kutichiykunata yachanaykichu. Uyariq, kuskanchaq, iñisqayki kuraq runawan rimayta atinki.",
+            "Pipas mana allin kasqaykita musyachisuptinqa, yanapayta mañakuyta atinki."
+          ]
+        }
+      ]
+    }
+  }
+}

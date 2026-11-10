@@ -1,0 +1,61 @@
+{
+  "kind": "lesson",
+  "id": "si-una-nina-te-cuenta",
+  "topic": "abuso_violencia",
+  "category": "proteccion",
+  "order": 4,
+  "durationMin": 4,
+  "ageBands": [],
+  "rights": [
+    "proteccion"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "002 · Si te cuenta"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Si una niña te cuenta algo",
+      "summary": "Qué hacer primero y qué no hacer.",
+      "sections": [
+        {
+          "heading": "Ideas centrales",
+          "bullets": [
+            "Escucha con calma y créele.",
+            "Dile que no es su culpa y que hizo bien en contarlo.",
+            "No la interrogues ni busques un arreglo con la persona señalada.",
+            "Busca ayuda hoy."
+          ]
+        }
+      ],
+      "activity": {
+        "prompt": "Una niña te cuenta que un adulto la hace sentir mal. ¿Qué haces primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Le pido todos los detalles para entender bien.",
+            "correct": false,
+            "feedback": "No le corresponde al adulto investigar ni interrogar."
+          },
+          {
+            "id": "b",
+            "text": "La escucho con calma, le creo y le digo que no es su culpa.",
+            "correct": true,
+            "feedback": "Esa reacción protege y hace más probable que vuelva a pedir ayuda."
+          },
+          {
+            "id": "c",
+            "text": "Hablo con la persona señalada para aclarar.",
+            "correct": false,
+            "feedback": "No enfrentes ni avises a la persona señalada."
+          }
+        ]
+      }
+    }
+  }
+}

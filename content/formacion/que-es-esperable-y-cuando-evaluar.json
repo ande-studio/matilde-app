@@ -1,0 +1,48 @@
+{
+  "kind": "lesson",
+  "id": "que-es-esperable-y-cuando-evaluar",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 2,
+  "durationMin": 5,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "S2"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Qué es esperable y cuándo evaluar",
+      "summary": "Orientación para la consulta.",
+      "sections": [
+        {
+          "paragraphs": [
+            "Esta lección depende de la norma técnica vigente del MINSA y de la revisión sanitaria."
+          ]
+        },
+        {
+          "heading": "Ideas centrales",
+          "bullets": [
+            "La menstruación es parte normal del desarrollo.",
+            "Esta herramienta orienta y deriva: no diagnostica ni recomienda medicamentos o dosis."
+          ]
+        },
+        {
+          "callout": {
+            "tone": "warning",
+            "text": "Los criterios de qué es esperable y de cuándo evaluar están pendientes de revisión sanitaria."
+          }
+        }
+      ]
+    }
+  }
+}

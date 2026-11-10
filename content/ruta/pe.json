@@ -1,0 +1,447 @@
+{
+  "kind": "ruta",
+  "id": "ruta-pe",
+  "topic": "rutas_denuncia",
+  "pais": "PE",
+  "version": "0.1.0-borrador",
+  "vigenciaLegal": null,
+  "responsableLegal": null,
+  "rights": [
+    "proteccion"
+  ],
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "sources": [],
+  "preguntas": [
+    {
+      "id": "peligro",
+      "opciones": [
+        "si",
+        "no"
+      ]
+    },
+    {
+      "id": "que",
+      "opciones": [
+        "sexual",
+        "violencia",
+        "union",
+        "no_decir"
+      ]
+    },
+    {
+      "id": "ultimas72h",
+      "opciones": [
+        "si",
+        "no",
+        "no_se"
+      ],
+      "mostrarSi": {
+        "que": [
+          "sexual",
+          "no_decir"
+        ]
+      }
+    },
+    {
+      "id": "quien",
+      "opciones": [
+        "familia",
+        "escuela",
+        "comunidad",
+        "internet",
+        "no_decir"
+      ]
+    },
+    {
+      "id": "yo",
+      "opciones": [
+        "nna",
+        "familiar",
+        "docente",
+        "salud",
+        "otra"
+      ],
+      "prellenarDesdePerfil": true
+    }
+  ],
+  "reglas": [
+    {
+      "si": {
+        "peligro": "si"
+      },
+      "salida": "emergencia",
+      "termina": true
+    },
+    {
+      "si": {
+        "ultimas72h": [
+          "si",
+          "no_se"
+        ]
+      },
+      "agregarPrimero": "salud_urgente"
+    },
+    {
+      "si": {
+        "que": "union"
+      },
+      "salida": "union_temprana"
+    },
+    {
+      "si": {
+        "que": "violencia"
+      },
+      "salida": "violencia_30364"
+    },
+    {
+      "si": {
+        "quien": "escuela",
+        "yo": "docente"
+      },
+      "salida": "escuela_docente"
+    },
+    {
+      "si": {
+        "quien": "escuela",
+        "yo": [
+          "familiar",
+          "otra"
+        ]
+      },
+      "salida": "escuela_familia"
+    },
+    {
+      "si": {
+        "quien": "familia",
+        "yo": "nna"
+      },
+      "salida": "familia_nna"
+    },
+    {
+      "si": {
+        "yo": "salud"
+      },
+      "salida": "personal_salud"
+    },
+    {
+      "si": {
+        "quien": "internet"
+      },
+      "agregar": "evidencia_digital"
+    },
+    {
+      "porDefecto": true,
+      "salida": "denuncia_general"
+    }
+  ],
+  "locales": {
+    "es": {
+      "preguntas": {
+        "peligro": {
+          "text": "¿Hay peligro ahora?",
+          "opciones": {
+            "si": "Sí",
+            "no": "No"
+          }
+        },
+        "que": {
+          "text": "¿Qué está pasando?",
+          "opciones": {
+            "sexual": "Alguien la tocó o le hizo algo sexual",
+            "violencia": "La golpean, la amenazan o la humillan",
+            "union": "La quieren unir o casar, o vive con una persona mayor",
+            "no_decir": "Prefiero no decir"
+          }
+        },
+        "ultimas72h": {
+          "text": "¿Hubo contacto sexual en los últimos 3 días?",
+          "opciones": {
+            "si": "Sí",
+            "no": "No",
+            "no_se": "No sé"
+          }
+        },
+        "quien": {
+          "text": "¿Quién sería la persona?",
+          "opciones": {
+            "familia": "Alguien de la casa o la familia",
+            "escuela": "Alguien de la escuela",
+            "comunidad": "Otra persona de la comunidad",
+            "internet": "Alguien por internet o celular",
+            "no_decir": "Prefiero no decir"
+          }
+        },
+        "yo": {
+          "text": "¿Quién eres tú?",
+          "opciones": {
+            "nna": "La niña o adolescente",
+            "familiar": "Familiar",
+            "docente": "Docente o personal de la escuela",
+            "salud": "Personal de salud",
+            "otra": "Otra persona"
+          }
+        }
+      }
+    }
+  },
+  "loQueDebesSaber": {
+    "locales": {
+      "es": {
+        "title": "Lo que debes saber",
+        "items": [
+          "La denuncia es gratuita.",
+          "Puede ser verbal o escrita.",
+          "No necesitas abogado.",
+          "Puedes denunciar aunque no seas la víctima.",
+          "No tienes que saber el nombre del agresor.",
+          "No habrá conciliación con el agresor.",
+          "Pide una copia de tu denuncia.",
+          "Si no te la reciben, acude a su superior o al Ministerio Público."
+        ]
+      }
+    }
+  },
+  "salidas": [
+    {
+      "id": "emergencia",
+      "serviceTypes": [],
+      "calls": [
+        "policia",
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": false,
+      "locales": {
+        "es": {
+          "title": "Hay peligro ahora",
+          "steps": [
+            "Ve a un lugar seguro.",
+            "Llama al 105 (central policial).",
+            "Llama a la Línea 100 para orientación."
+          ],
+          "notes": []
+        }
+      }
+    },
+    {
+      "id": "salud_urgente",
+      "serviceTypes": [
+        "establecimiento_salud"
+      ],
+      "calls": [],
+      "incluyeLoQueDebesSaber": false,
+      "locales": {
+        "es": {
+          "title": "Atención de salud hoy",
+          "steps": [
+            "Ve hoy a un establecimiento de salud: el tiempo importa. Si el contacto sexual fue hace menos de 72 horas, la atención es urgente.",
+            "La atención es gratuita y no se exige DNI.",
+            "Corresponde el kit de emergencia para casos de violencia sexual."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "union_temprana",
+      "serviceTypes": [
+        "demuna"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": false,
+      "locales": {
+        "es": {
+          "title": "Unión temprana o convivencia con una persona mayor",
+          "steps": [
+            "Ella tiene derecho a seguir estudiando y a decidir.",
+            "Llama a la Línea 100 para orientación.",
+            "Acude a la DEMUNA para apoyo y derivación."
+          ],
+          "notes": [
+            "Los pasos de protección completos dependen de la revisión legal (norma sobre matrimonio de menores y vía de denuncia que corresponde). Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "violencia_30364",
+      "serviceTypes": [
+        "cem",
+        "comisaria",
+        "fiscalia",
+        "juzgado_familia"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Violencia física, psicológica o amenazas",
+          "steps": [
+            "Llama a la Línea 100 (gratuita y confidencial).",
+            "Acude al Centro Emergencia Mujer (CEM) para orientación legal, psicológica y social.",
+            "Puedes denunciar en la comisaría, la Fiscalía o el Juzgado de Familia (Ley 30364)."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "escuela_docente",
+      "serviceTypes": [
+        "comisaria",
+        "fiscalia",
+        "ugel"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Hechos en la escuela: tu obligación como docente o personal",
+          "steps": [
+            "Tienes la obligación de denunciar los casos de violencia que conozcas en tu función.",
+            "Denuncia en las primeras 24 horas en la comisaría o la Fiscalía.",
+            "Informa a la dirección de la escuela y a la UGEL.",
+            "Registra el caso en SíseVe."
+          ],
+          "notes": [
+            "Protocolos actualizados por la RM 383-2025-MINEDU, según el SDD. Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "escuela_familia",
+      "serviceTypes": [
+        "comisaria",
+        "fiscalia",
+        "ugel"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Hechos en la escuela: qué puede hacer la familia",
+          "steps": [
+            "Denuncia en la comisaría o la Fiscalía.",
+            "La escuela debe activar su protocolo e informar a la UGEL.",
+            "No necesitas esperar a la escuela para denunciar."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "familia_nna",
+      "serviceTypes": [
+        "cem"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Si la persona es de la casa o de la familia",
+          "steps": [
+            "Cuéntale a otro adulto de confianza, fuera de esa persona.",
+            "Llama a la Línea 100."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "personal_salud",
+      "serviceTypes": [
+        "comisaria",
+        "fiscalia",
+        "cem",
+        "demuna",
+        "establecimiento_salud"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Personal de salud: qué te corresponde",
+          "steps": [
+            "Tienes la obligación de denunciar los casos de violencia que conozcas en tu función (Ley 30364, art. 15, según el SDD).",
+            "Escucha con calma, cree y no interrogues.",
+            "Denuncia en la comisaría o la Fiscalía.",
+            "Orienta a la familia hacia la Línea 100 y el CEM."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "evidencia_digital",
+      "serviceTypes": [],
+      "calls": [],
+      "incluyeLoQueDebesSaber": false,
+      "locales": {
+        "es": {
+          "title": "Mensajes o imágenes por internet o celular",
+          "steps": [
+            "No borres los mensajes ni las imágenes.",
+            "No los reenvíes.",
+            "Denuncia por las mismas vías."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    },
+    {
+      "id": "denuncia_general",
+      "serviceTypes": [
+        "comisaria",
+        "fiscalia",
+        "juzgado_familia",
+        "cem",
+        "demuna"
+      ],
+      "calls": [
+        "linea-100"
+      ],
+      "incluyeLoQueDebesSaber": true,
+      "locales": {
+        "es": {
+          "title": "Cómo denunciar",
+          "steps": [
+            "Denuncia en la comisaría, la Fiscalía o el Juzgado de Familia.",
+            "Puedes pedir orientación en la Línea 100 y en el CEM.",
+            "La DEMUNA puede apoyar la denuncia y derivar el caso."
+          ],
+          "notes": [
+            "Contenido pendiente de revisión legal y de protección infantil."
+          ]
+        }
+      }
+    }
+  ]
+}

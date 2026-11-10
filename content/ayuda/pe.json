@@ -1,0 +1,60 @@
+{
+  "kind": "ayuda",
+  "id": "ayuda-pe",
+  "topic": "rutas_denuncia",
+  "pais": "PE",
+  "rights": [
+    "proteccion"
+  ],
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": true,
+  "sources": [
+    {
+      "label": "Línea 100 — gob.pe",
+      "url": "https://www.gob.pe/44181-recibir-ayuda-en-casos-de-violencia-familiar-y-sexual-linea-100"
+    },
+    {
+      "label": "Teléfonos de emergencia — gob.pe",
+      "url": "https://www.gob.pe/547-telefonos-de-emergencia"
+    }
+  ],
+  "lines": [
+    {
+      "id": "linea-100",
+      "number": "100",
+      "verifiedAt": null,
+      "responsable": null,
+      "source": "https://www.gob.pe/44181-recibir-ayuda-en-casos-de-violencia-familiar-y-sexual-linea-100",
+      "locales": {
+        "es": {
+          "label": "Línea 100",
+          "detail": "Orientación gratuita · 24 horas · Castellano, quechua y aimara"
+        },
+        "qu": {
+          "label": "Línea 100",
+          "detail": "Mana qullqiwan yanapay · 24 hora · Castellano, runasimi, aymara"
+        }
+      }
+    },
+    {
+      "id": "policia",
+      "number": "105",
+      "verifiedAt": null,
+      "responsable": null,
+      "source": "https://www.gob.pe/547-telefonos-de-emergencia",
+      "locales": {
+        "es": {
+          "label": "105 · Policía",
+          "detail": "Emergencias policiales en Perú"
+        },
+        "qu": {
+          "label": "105 · Policía",
+          "detail": "Perúpi utqay yanapaypaq Policía"
+        }
+      }
+    }
+  ]
+}

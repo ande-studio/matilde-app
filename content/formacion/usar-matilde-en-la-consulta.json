@@ -1,0 +1,61 @@
+{
+  "kind": "lesson",
+  "id": "usar-matilde-en-la-consulta",
+  "topic": "educacion_sexual",
+  "category": "abordar",
+  "order": 3,
+  "durationMin": 4,
+  "ageBands": [],
+  "rights": [
+    "informacion",
+    "salud"
+  ],
+  "sources": [],
+  "curriculum": {
+    "sddRef": "S3"
+  },
+  "reviews": {
+    "es": [],
+    "qu": []
+  },
+  "alwaysAvailable": false,
+  "locales": {
+    "es": {
+      "title": "Usar Matilde en la consulta",
+      "summary": "Cómo mostrar material a la paciente sin exponer información del profesional.",
+      "sections": [
+        {
+          "heading": "Modo consulta",
+          "bullets": [
+            "Muestra a pantalla completa solo el material pensado para la niña o adolescente.",
+            "No muestres criterios de derivación ni la ruta de atención junto a la paciente.",
+            "Cambia entre español y quechua cuando haya contenido disponible."
+          ]
+        }
+      ],
+      "activity": {
+        "prompt": "¿Qué debe verse en la pantalla que miras junto a la paciente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Los criterios de derivación.",
+            "correct": false,
+            "feedback": "Esa información es para el profesional; no la muestres junto a la paciente."
+          },
+          {
+            "id": "b",
+            "text": "Solo el mensaje pensado para ella.",
+            "correct": true,
+            "feedback": "El Modo consulta muestra solo el material para la paciente."
+          },
+          {
+            "id": "c",
+            "text": "Mis notas sobre el caso.",
+            "correct": false,
+            "feedback": "Esta herramienta no registra datos de pacientes."
+          }
+        ]
+      }
+    }
+  }
+}

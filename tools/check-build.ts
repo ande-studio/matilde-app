@@ -68,6 +68,9 @@ for (const needle of ["default-src 'self'", "connect-src 'self'", 'Referrer-Poli
   if (!headers.includes(needle)) fail(`_headers: falta "${needle}"`)
 }
 if (/unsafe-inline|unsafe-eval/.test(headers)) fail('_headers: la CSP no debe permitir unsafe-inline ni unsafe-eval')
+// Quién puede incrustar la app: nadie ('none') o solo el mismo origen ('self', p. ej. el mockup con marco de teléfono). Nunca otros orígenes.
+const ancestors = /frame-ancestors([^;\n]*)/.exec(headers)?.[1]?.trim()
+if (ancestors !== "'none'" && ancestors !== "'self'") fail(`_headers: frame-ancestors debe ser 'none' o 'self' (es: ${ancestors ?? 'ausente'})`)
 
 const sw = await readFile(join(DIST, 'sw.js'), 'utf8').catch(() => '')
 for (const asset of ['neutral.html', 'neutral.css', 'index.html', 'icon-192.png']) {

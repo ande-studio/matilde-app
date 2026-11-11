@@ -15,7 +15,7 @@ PWA de apoyo a la consejería para **profesionales de postas médicas en Perú**
 | **Modo consulta**: mensaje a pantalla completa para ver con la paciente; volver exige mantener presionado | `src/screens/Share.tsx` |
 | **Frases en quechua** (lo que falta se marca; no se inventa) | `src/screens/Phrases.tsx` |
 | **Formación**: micro-lecciones con práctica y progreso opcional | `src/screens/Training.tsx` |
-| **Conversar con Matilde**: pantalla de "próximamente" (sin IA, sin campo de texto) con accesos guiados | `src/screens/Matilde.tsx` |
+| **Conversar con Matilde**: "próximamente" y una **demo simulada** (elige rol, preguntas sugeridas, respuestas escritas de antemano; sin IA ni texto libre) | `src/screens/Matilde.tsx`, `src/demo/matilde.ts` |
 | Inicio con ruta de aprendizaje, progreso y **racha semanal opcional y local** | `src/screens/Home.tsx`, `src/lib/week.ts` |
 | Ajustes: idioma, edad, progreso opcional, **borrar todo** | `src/screens/Settings.tsx` |
 | Offline (service worker), instalable | `vite.config.ts` |
@@ -86,6 +86,7 @@ Mientras nada esté aprobado, `production` solo lleva la ayuda de emergencia: es
 
 ## Límites conocidos
 
+- **Demo de Matilde**: las respuestas son de ejemplo y **no están validadas**; la marca de revisión que muestra es simulada. Solo los números de ayuda salen del contenido real. No hay IA, red ni texto libre, y la conversación vive en memoria (salir rápido y borrar todo la descartan).
 - **Contenido**: borrador sin revisar. El quechua reutiliza solo propuestas del prototipo (sin revisión) y lo que falta se marca como pendiente.
 - **Salir rápido** no borra el historial previo del navegador, no cierra la app instalada ni la quita de "recientes". La app lo dice en Ajustes.
 - **Service worker / offline**: configurado y comprobado en el build (precache de la app y de la pantalla neutra), pero **no se verificó en un navegador real** con el modo avión. Falta una prueba E2E (Playwright) y una auditoría Lighthouse.

@@ -86,7 +86,7 @@ Mientras nada esté aprobado, `production` solo lleva la ayuda de emergencia: es
 
 ## Límites conocidos
 
-- **Demo de Matilde**: las respuestas son de ejemplo y **no están validadas**; la marca de revisión que muestra es simulada. Solo los números de ayuda salen del contenido real. No hay IA, red ni texto libre, y la conversación vive en memoria (salir rápido y borrar todo la descartan).
+- **Demo de Matilde**: los avisos que lo indican están **ocultos temporalmente** (`demoConfig.showNotices` en `src/demo/matilde.ts`); no publicar la pantalla así donde pueda tomarse por contenido validado. Las respuestas son de ejemplo y **no están validadas**; la marca de revisión que muestra es simulada. Solo los números de ayuda salen del contenido real. No hay IA, red ni texto libre, y la conversación vive en memoria (salir rápido y borrar todo la descartan).
 - **Contenido**: borrador sin revisar. El quechua reutiliza solo propuestas del prototipo (sin revisión) y lo que falta se marca como pendiente.
 - **Salir rápido** no borra el historial previo del navegador, no cierra la app instalada ni la quita de "recientes". La app lo dice en Ajustes.
 - **Service worker / offline**: configurado y comprobado en el build (precache de la app y de la pantalla neutra), pero **no se verificó en un navegador real** con el modo avión. Falta una prueba E2E (Playwright) y una auditoría Lighthouse.

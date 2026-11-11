@@ -1,0 +1,162 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<title>Matilde en el móvil</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@800;900&display=swap">
+<style>
+/* Visor móvil de Matilde. Concepto: un banco de pruebas sobrio; el teléfono es el protagonista y los controles quedan arriba, en una sola fila. */
+:root {
+  --bg: #eef1ea;
+  --surface: #ffffff;
+  --ink: #22332b;
+  --muted: #55645b;
+  --line: #d3dbcf;
+  --accent: #3d6b53;
+  --accent-ink: #ffffff;
+  --device: #18211c;
+  --device-edge: #3a4740;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-head: 'Nunito', 'DM Sans', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131a16; --surface: #1c2621; --ink: #e5ece7; --muted: #a3b2a9; --line: #2b3830;
+    --accent: #8cc0a3; --accent-ink: #0f1a14; --device: #0a0e0c; --device-edge: #46544c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131a16; --surface: #1c2621; --ink: #e5ece7; --muted: #a3b2a9; --line: #2b3830;
+  --accent: #8cc0a3; --accent-ink: #0f1a14; --device: #0a0e0c; --device-edge: #46544c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font: 16px/1.5 var(--font-body);
+  padding-block: 20px 32px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; max-width: 980px; margin: 0 auto 20px; }
+.top h1 { margin: 0; font: 900 26px/1.1 var(--font-head); letter-spacing: -0.8px; text-wrap: balance; }
+.top h1 span { color: #e9a091; }
+.top p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: none; min-height: 44px; padding: 6px 14px; font-weight: 500; font-size: 14px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.act { min-height: 44px; padding: 6px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 14px; font-weight: 500; }
+.act:hover { border-color: var(--accent); }
+
+.bench { display: grid; place-items: start center; min-width: 0; }
+.fit { position: relative; }
+.device {
+  position: absolute; left: 0; top: 0; transform-origin: top left;
+  padding: var(--bz); background: var(--device); border-radius: var(--r); box-shadow: 0 0 0 2px var(--device-edge), 0 28px 60px -24px rgba(10, 20, 14, 0.55);
+}
+.screen { position: relative; overflow: hidden; background: #fafbf7; border-radius: calc(var(--r) - var(--bz)); width: var(--w); height: var(--h); }
+.screen iframe { display: block; width: 100%; height: 100%; border: 0; background: #fafbf7; }
+.cut { position: absolute; z-index: 2; left: 50%; top: 10px; transform: translateX(-50%); width: 96px; height: 26px; border-radius: 14px; background: var(--device); pointer-events: none; }
+.device[data-kind="android"] .cut, .device[data-kind="low"] .cut { width: 14px; height: 14px; top: 12px; }
+.device[data-land="true"] .cut { display: none; }
+.home { position: absolute; z-index: 2; left: 50%; bottom: 7px; transform: translateX(-50%); width: 120px; height: 4px; border-radius: 4px; background: rgba(20, 30, 25, 0.45); pointer-events: none; }
+.device[data-kind="low"] .home, .device[data-kind="android"] .home { display: none; }
+
+/* En un teléfono real no se dibuja el marco: la app ocupa la pantalla. */
+.bare .fit { width: 100% !important; height: auto !important; }
+.bare .device { position: static; transform: none !important; padding: 0; background: none; box-shadow: none; border-radius: 0; }
+.bare .screen { width: 100%; height: max(560px, 78vh); border-radius: 16px; border: 1px solid var(--line); }
+.bare .cut, .bare .home, .bare #devices, .bare #rotate { display: none; }
+
+.note { max-width: 980px; margin: 24px auto 0; font-size: 13px; color: var(--muted); text-wrap: pretty; }
+.note b { color: var(--ink); font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="top">
+  <div>
+    <h1>matilde<span>.</span> en el móvil</h1>
+    <p id="dims" aria-live="polite"></p>
+  </div>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Dispositivo" id="devices">
+      <button type="button" data-d="low" aria-pressed="false">Android 360</button>
+      <button type="button" data-d="iphone" aria-pressed="true">iPhone 393</button>
+      <button type="button" data-d="android" aria-pressed="false">Android 412</button>
+    </div>
+    <button type="button" class="act" id="rotate">Girar</button>
+    <button type="button" class="act" id="restart">Reiniciar app</button>
+  </div>
+</header>
+
+<main class="bench" id="bench">
+  <div class="fit" id="fit">
+    <div class="device" id="device" data-kind="iphone" data-land="false">
+      <div class="screen" id="screen">
+        <div class="cut" aria-hidden="true"></div>
+        <iframe id="app" title="Matilde, versión incrustada"></iframe>
+        <div class="home" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<p class="note"><b>Versión incrustada de la app</b> (compilación __BUILD_INFO__). Funciona sin conexión a internet, pero sin service worker ni instalación como PWA. El contenido es un borrador sin revisar; las respuestas de "Conversar con Matilde" son de ejemplo y no están validadas. "Salir rápido" muestra la pantalla neutra dentro del teléfono.</p>
+
+<script>
+(function () {
+  var APP_HTML = __APP_HTML_JSON__;
+  var DEVICES = {
+    low:     { w: 360, h: 760, bz: 10, r: 30, kind: 'low',     label: 'Android 360 × 760' },
+    iphone:  { w: 393, h: 852, bz: 12, r: 56, kind: 'iphone',  label: 'iPhone 393 × 852' },
+    android: { w: 412, h: 915, bz: 10, r: 34, kind: 'android', label: 'Android 412 × 915' }
+  };
+  var state = { d: 'iphone', land: false };
+  var $ = function (id) { return document.getElementById(id); };
+  var bench = $('bench'), fit = $('fit'), device = $('device'), screen = $('screen'), frame = $('app'), dims = $('dims');
+
+  function load() { frame.srcdoc = APP_HTML; }
+
+  function layout() {
+    var d = DEVICES[state.d];
+    var w = state.land ? d.h : d.w, h = state.land ? d.w : d.h;
+    var bare = window.matchMedia('(max-width: 520px)').matches;
+    document.body.classList.toggle('bare', bare);
+    device.dataset.kind = d.kind;
+    device.dataset.land = String(state.land);
+    device.style.setProperty('--w', w + 'px');
+    device.style.setProperty('--h', h + 'px');
+    device.style.setProperty('--bz', d.bz + 'px');
+    device.style.setProperty('--r', d.r + 'px');
+    dims.textContent = bare ? 'Pantalla completa del dispositivo' : d.label.replace(/(\d+) × (\d+)/, state.land ? '$2 × $1' : '$1 × $2') + (state.land ? ' · horizontal' : '');
+    if (bare) { fit.style.width = ''; fit.style.height = ''; return; }
+    var fullW = w + d.bz * 2, fullH = h + d.bz * 2;
+    var availW = bench.clientWidth || fullW;
+    var availH = Math.max(480, window.innerHeight - 190);
+    var s = Math.min(1, availW / fullW, availH / fullH);
+    device.style.transform = 'scale(' + s + ')';
+    fit.style.width = Math.round(fullW * s) + 'px';
+    fit.style.height = Math.round(fullH * s) + 'px';
+  }
+
+  $('devices').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-d]');
+    if (!b) return;
+    state.d = b.dataset.d;
+    Array.prototype.forEach.call($('devices').children, function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    layout();
+  });
+  $('rotate').addEventListener('click', function () { state.land = !state.land; layout(); });
+  $('restart').addEventListener('click', load);
+  window.addEventListener('message', function (e) {
+    if (e.source === frame.contentWindow && e.data && e.data.matilde === 'restart') load();
+  });
+  window.addEventListener('resize', layout);
+  if (window.ResizeObserver) new ResizeObserver(layout).observe(bench);
+
+  layout();
+  load();
+})();
+</script>

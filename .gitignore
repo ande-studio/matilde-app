@@ -12,3 +12,6 @@ coverage/
 
 # Generado por `npm run content` a partir de content/
 src/generated/
+
+# Paquete de un solo archivo del visor móvil (`npm run viewer`)
+artifact/

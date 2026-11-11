@@ -15,6 +15,7 @@
     "preview": "vite preview",
     "typecheck": "npm run content && tsc --noEmit",
     "test": "npm run content && vitest run --passWithNoTests",
+    "viewer": "npm run build && tsx tools/build-viewer.ts",
     "icons": "tsx tools/make-icons.ts",
     "check:build": "tsx tools/check-build.ts"
   },

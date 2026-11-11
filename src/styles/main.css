@@ -347,6 +347,43 @@ select {
 .option--right { border-color: #2f7a4d; background: #e3f3e6; }
 .option--wrong { border-color: #b4571d; background: #fff1e6; }
 
+/* ---------- Demo de conversación (simulada) ---------- */
+.demo { margin: 28px 0 8px; }
+.demo h2 { font-size: 22px; }
+.demo-banner { margin: 0 0 16px; padding: 12px 16px; border-radius: 12px; background: #fff4d6; border: 1px solid #eddfb2; color: #5d4d17; font-size: 14px; }
+.chat-log { display: grid; gap: 12px; margin-bottom: 16px; }
+.msg { display: flex; }
+.msg--you { justify-content: flex-end; }
+.msg-bubble { max-width: min(100%, 560px); padding: 14px 18px; border-radius: 20px; line-height: 1.6; overflow-wrap: anywhere; }
+.msg--matilde .msg-bubble { border-radius: 20px 20px 20px 4px; background: #e8f1e2; max-width: min(100%, 680px); }
+.msg--you .msg-bubble { border-radius: 20px 20px 4px 20px; background: var(--green); color: #fff; }
+.msg-bubble p { margin: 0 0 10px; }
+.msg-bubble p:last-child { margin-bottom: 0; }
+.msg-bubble ul { margin: 0 0 10px; }
+.chat-log > div > .msg { margin-top: 12px; }
+.chat-log > div > .msg:first-child { margin-top: 0; }
+.typing { display: flex; align-items: center; gap: 10px; color: var(--muted); }
+.typing-dots { display: inline-flex; gap: 4px; }
+.typing-dots i { width: 8px; height: 8px; border-radius: 50%; background: #7fa066; animation: blink 1s infinite ease-in-out; }
+.typing-dots i:nth-child(2) { animation-delay: 0.15s; }
+.typing-dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes blink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+.demo-foot { display: block; margin-top: 12px; font-size: 13px; color: #4f6249; }
+.demo-sources { margin: 12px 0; }
+.demo-sources__title { margin: 0 0 8px; font-weight: 700; font-size: 14px; }
+.source-cards { list-style: none; padding: 0; margin: 0 0 10px; display: grid; gap: 8px; }
+.source-cards li { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid #d9e3d1; }
+.source-cards .icon { color: #5f7a4f; margin-top: 2px; }
+.source-cards strong { display: block; font-size: 15px; }
+.source-cards small { display: block; font-size: 13px; color: var(--muted); }
+.demo-reviews { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.refer-card { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--alert-line); color: var(--alert-ink); }
+.refer-card .icon { margin-top: 2px; }
+.refer-card strong { display: block; }
+.refer-card span span { display: block; margin-top: 2px; }
+.demo-help { margin: 12px 0 0; }
+.choice[disabled] { opacity: 0.55; cursor: default; }
+
 /* ---------- Ruta "¿Qué hago?" ---------- */
 .question { border: 0; padding: 0; margin: 16px 0; min-width: 0; }
 .question legend { float: left; width: 100%; padding: 0; margin-bottom: 12px; }

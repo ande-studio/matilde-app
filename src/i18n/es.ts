@@ -124,6 +124,7 @@ export const es = {
   'demo.foot': 'Respuesta de demostración · contenido de ejemplo, sin validar.',
   'demo.help.route': 'Abrir la ruta “¿Qué hago?”',
   'chat.label': 'Mientras tanto, podemos empezar por aquí',
+  'chat.label.alt': 'También puedes empezar por aquí',
   'chat.c.route': 'Sospecho violencia: ¿qué hago?',
   'chat.c.guides': '¿Cómo abordo estos cambios en la consulta?',
   'chat.c.training': 'Quiero practicar una idea',

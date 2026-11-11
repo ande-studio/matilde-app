@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-li
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from '../src/App'
 import { pieceById } from '../src/content'
-import { demoTiming } from '../src/demo/matilde'
+import { demoConfig, demoTiming } from '../src/demo/matilde'
 import { exitApi } from '../src/lib/exit'
 import { PREFS_KEY } from '../src/lib/storage'
 import { eraseAll, setSaveProgress } from '../src/state/prefs'
@@ -16,6 +16,7 @@ beforeEach(() => {
   eraseAll()
 })
 afterEach(() => {
+  demoConfig.showNotices = false // por defecto los avisos de demo están ocultos
   cleanup()
   vi.restoreAllMocks()
 })
@@ -177,6 +178,7 @@ describe('navegación y pantallas de la referencia', () => {
   })
 
   it('"Conversar con Matilde" avisa que llega pronto, no tiene campo de texto y ofrece alternativas guiadas', async () => {
+    demoConfig.showNotices = true
     render(<App />)
     const nav = screen.getByRole('navigation', { name: 'Navegación principal' })
     fireEvent.click(within(nav).getByRole('button', { name: 'Conversar con Matilde' }))
@@ -257,7 +259,8 @@ describe('demo de "Conversar con Matilde" (simulada)', () => {
     await screen.findByRole('heading', { name: 'Prueba una conversación de ejemplo' })
   }
 
-  it('avisa que es una demostración, sin IA y sin contenido validado, y no tiene texto libre', async () => {
+  it('con los avisos activados, indica que es una demostración, sin IA y sin contenido validado', async () => {
+    demoConfig.showNotices = true
     await openChat()
     expect(screen.getByText(/Demostración: las respuestas están escritas de antemano/)).toBeTruthy()
     expect(document.querySelectorAll('input, textarea').length).toBe(0)
@@ -266,7 +269,23 @@ describe('demo de "Conversar con Matilde" (simulada)', () => {
     expect(document.querySelectorAll('input, textarea').length).toBe(0)
   })
 
+  it('con los avisos ocultos (por defecto) no muestra textos de demostración, pero sigue sin texto libre', async () => {
+    await openChat()
+    expect(screen.queryByText(/Demostración: las respuestas están escritas de antemano/)).toBeNull()
+    expect(screen.queryByText('PRÓXIMAMENTE')).toBeNull()
+    expect(screen.queryByText(/Todavía no hay conversación con inteligencia artificial/)).toBeNull()
+    expect(screen.queryByRole('heading', { name: 'Conversar conmigo llega pronto' })).toBeNull()
+    click('Docente')
+    click('¿Cómo explico la menstruación a mis estudiantes?')
+    await screen.findByText('Me baso en estas lecciones')
+    await waitFor(() => expect(screen.getByText('Mitos y creencias que no ayudan')).toBeTruthy())
+    expect(screen.queryByText('simulada')).toBeNull()
+    expect(screen.queryByText(/contenido de ejemplo, sin validar/)).toBeNull()
+    expect(document.querySelectorAll('input, textarea').length).toBe(0)
+  })
+
   it('docente: explica la menstruación citando lecciones con revisión simulada (no real)', async () => {
+    demoConfig.showNotices = true
     await openChat()
     click('Docente')
     click('¿Cómo explico la menstruación a mis estudiantes?')

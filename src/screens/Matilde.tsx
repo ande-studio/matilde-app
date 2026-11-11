@@ -4,6 +4,7 @@ import { Eyebrow, Icon, Mascot, ScreenTitle, type IconName } from '../components
 import { getHelpLines } from '../content'
 import {
   DEMO_ROLES,
+  demoConfig,
   SIMULATED_REVIEWS,
   demoTiming,
   getPrompt,
@@ -97,13 +98,13 @@ function Block({ block }: { block: DemoBlock }) {
             ))}
           </ul>
           <p class="demo-reviews">
-            <span>{t('demo.sources.sim')}</span>
+            {demoConfig.showNotices && <span>{t('demo.sources.sim')}</span>}
             {SIMULATED_REVIEWS.map((r) => (
               <span class="badge badge--ok" key={r}>
                 {r}
               </span>
             ))}
-            <span class="badge badge--pending">{t('demo.sources.simTag')}</span>
+            {demoConfig.showNotices && <span class="badge badge--pending">{t('demo.sources.simTag')}</span>}
           </p>
         </div>
       )
@@ -164,7 +165,7 @@ function Answer({ role, id, done }: { role: DemoRoleId; id: DemoPromptId; done: 
           {prompt.blocks.slice(0, visible).map((block, i) => (
             <Block block={block} key={i} />
           ))}
-          {visible >= total && <small class="demo-foot">{t('demo.foot')}</small>}
+          {visible >= total && demoConfig.showNotices && <small class="demo-foot">{t('demo.foot')}</small>}
         </>
       )}
       <div ref={end} />
@@ -190,8 +191,10 @@ function Demo() {
 
   return (
     <section class="demo" aria-labelledby="demo-title">
-      <h2 id="demo-title">{t('demo.title')}</h2>
-      <p class="demo-banner">{t('demo.banner')}</p>
+      <h2 id="demo-title" class={demoConfig.showNotices ? undefined : 'visually-hidden'}>
+        {t('demo.title')}
+      </h2>
+      {demoConfig.showNotices && <p class="demo-banner">{t('demo.banner')}</p>}
 
       <div class="chat-log" role="log" aria-live="polite" aria-label={t('demo.log')}>
         <Bubble who="matilde">
@@ -277,15 +280,17 @@ export function Matilde() {
         <p>{t('chat.intro')}</p>
       </div>
 
-      <div class="chat-bubble">
-        <span class="soon-tag">{t('soon.tag')}</span>
-        <h2>{t('chat.soon.title')}</h2>
-        <p>{t('chat.soon.body')}</p>
-      </div>
+      {demoConfig.showNotices && (
+        <div class="chat-bubble">
+          <span class="soon-tag">{t('soon.tag')}</span>
+          <h2>{t('chat.soon.title')}</h2>
+          <p>{t('chat.soon.body')}</p>
+        </div>
+      )}
 
       <Demo />
 
-      <p class="chat-label">{t('chat.label')}</p>
+      <p class="chat-label">{t(demoConfig.showNotices ? 'chat.label' : 'chat.label.alt')}</p>
       <div class="choices">
         {CHOICES.map((choice) => (
           <button type="button" key={choice.label} class="choice" onClick={() => go(choice.to)}>
@@ -295,7 +300,7 @@ export function Matilde() {
         ))}
       </div>
 
-      <p class="notice">{t('chat.notice')}</p>
+      {demoConfig.showNotices && <p class="notice">{t('chat.notice')}</p>}
     </div>
   )
 }

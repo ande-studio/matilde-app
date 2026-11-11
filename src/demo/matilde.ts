@@ -44,6 +44,13 @@ export interface DemoRole {
   prompts: DemoPrompt[]
 }
 
+/**
+ * Avisos que dejan claro que es una demostración (banner, "sin validar", revisión "simulada", "próximamente").
+ * OCULTOS TEMPORALMENTE para presentar la demo sin ruido visual. Para volver a mostrarlos, poner `showNotices: true`.
+ * Mientras estén ocultos, NO publicar esta pantalla donde alguien pueda tomarla por contenido validado.
+ */
+export const demoConfig = { showNotices: false }
+
 /** Tiempos de la simulación (ms). Las pruebas los ponen en 0. */
 export const demoTiming = { typingMs: 900, blockMs: 650 }
 

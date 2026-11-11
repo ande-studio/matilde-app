@@ -2,10 +2,12 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-li
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from '../src/App'
 import { pieceById } from '../src/content'
+import { demoTiming } from '../src/demo/matilde'
 import { exitApi } from '../src/lib/exit'
 import { PREFS_KEY } from '../src/lib/storage'
 import { eraseAll, setSaveProgress } from '../src/state/prefs'
 import { go, type Route } from '../src/state/router'
+import { demoRole } from '../src/state/session'
 
 const click = (name: RegExp | string) => fireEvent.click(screen.getByRole('button', { name }))
 
@@ -239,5 +241,84 @@ describe('diálogos', () => {
     const dialog = await screen.findByRole('dialog')
     fireEvent.click(within(dialog).getByRole('button', { name: /Salir rápido/ }))
     expect(replace).toHaveBeenCalledWith('/neutral.html')
+  })
+})
+
+describe('demo de "Conversar con Matilde" (simulada)', () => {
+  beforeEach(() => {
+    demoTiming.typingMs = 0
+    demoTiming.blockMs = 0
+  })
+
+  const openChat = async () => {
+    render(<App />)
+    const nav = screen.getByRole('navigation', { name: 'Navegación principal' })
+    fireEvent.click(within(nav).getByRole('button', { name: 'Conversar con Matilde' }))
+    await screen.findByRole('heading', { name: 'Prueba una conversación de ejemplo' })
+  }
+
+  it('avisa que es una demostración, sin IA y sin contenido validado, y no tiene texto libre', async () => {
+    await openChat()
+    expect(screen.getByText(/Demostración: las respuestas están escritas de antemano/)).toBeTruthy()
+    expect(document.querySelectorAll('input, textarea').length).toBe(0)
+    click('Docente')
+    await screen.findByText('Soy docente.')
+    expect(document.querySelectorAll('input, textarea').length).toBe(0)
+  })
+
+  it('docente: explica la menstruación citando lecciones con revisión simulada (no real)', async () => {
+    await openChat()
+    click('Docente')
+    click('¿Cómo explico la menstruación a mis estudiantes?')
+    await screen.findByText('Me baso en estas lecciones')
+    expect(screen.getByText('Mitos y creencias que no ayudan')).toBeTruthy()
+    expect(screen.getByText('Sanitaria')).toBeTruthy()
+    expect(screen.getByText('Lingüística')).toBeTruthy()
+    expect(screen.getByText('Protección infantil')).toBeTruthy()
+    expect(screen.getByText('simulada')).toBeTruthy()
+    expect(screen.getByText(/contenido de ejemplo, sin validar/)).toBeTruthy()
+  })
+
+  it('docente: ante una pregunta de medicamentos no improvisa y deriva a un establecimiento de salud', async () => {
+    await openChat()
+    click('Docente')
+    click('Una estudiante tiene mucho dolor. ¿Qué medicina le puedo dar?')
+    await screen.findByText(/no voy a improvisar/)
+    expect(await screen.findByText('Derivación: establecimiento de salud')).toBeTruthy()
+    expect(screen.queryAllByRole('link', { name: /Llamar al/ })).toHaveLength(0)
+  })
+
+  it('docente: ante una sospecha de abuso muestra la Línea 100 (castellano, quechua y aimara)', async () => {
+    await openChat()
+    click('Docente')
+    click(/Una estudiante me contó que un adulto la hace sentir insegura/)
+    const call = await screen.findByRole('link', { name: /Llamar al 100/ })
+    expect(call.getAttribute('href')).toBe('tel:100')
+    expect(call.textContent).toMatch(/Castellano, quechua y aimara/)
+    expect(screen.getAllByText('Por confirmar').length).toBeGreaterThan(0)
+    expect(screen.getByRole('button', { name: /Abrir la ruta/ })).toBeTruthy()
+  })
+
+  it('no guarda nada y salir rápido descarta la conversación', async () => {
+    const replace = vi.spyOn(exitApi, 'replace').mockImplementation(() => {})
+    await openChat()
+    click('Docente')
+    click('¿Cómo explico la menstruación a mis estudiantes?')
+    await screen.findByText('Me baso en estas lecciones')
+    expect(window.localStorage.getItem(PREFS_KEY)).toBeNull()
+    click(/Salir rápido/)
+    expect(demoRole.value).toBeNull()
+    expect(replace).toHaveBeenCalledWith('/neutral.html')
+  })
+
+  it('permite cambiar de rol y reiniciar la demostración', async () => {
+    await openChat()
+    click('Docente')
+    click('¿Cómo explico la menstruación a mis estudiantes?')
+    await screen.findByText('Me baso en estas lecciones')
+    click('Reiniciar demostración')
+    await waitFor(() => expect(screen.queryByText('Me baso en estas lecciones')).toBeNull())
+    click('Cambiar de rol')
+    await screen.findByRole('button', { name: 'Personal de salud' })
   })
 })
